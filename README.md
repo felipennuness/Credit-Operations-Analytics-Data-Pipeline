@@ -130,31 +130,69 @@ See [Dashboard & Business Views](dashboards/README.md).
 
 ## Dashboard gallery
 
-### Executive Overview
+Each analytical area below is represented by the two complementary screens used in the Qlik application.
+
+### 1. Executive Overview
+
+**Executive KPIs and operational overview**
 
 ![Executive Overview](screenshots/consignado_portfolio_screenshots_sanitized/01-executive-overview.png)
 
-### Commercial Funnel
+**Regional performance and target analysis**
+
+![Executive Regional Performance](screenshots/consignado_portfolio_screenshots_sanitized/09-executive-regional-performance.png)
+
+### 2. Commercial Funnel
+
+**Funnel conversion and SLA overview**
 
 ![Commercial Funnel](screenshots/consignado_portfolio_screenshots_sanitized/02-commercial-funnel.png)
 
-### Portfolio & Opportunities
+**Manager-level funnel priorities and operational follow-up**
+
+![Funnel Manager Priorities](screenshots/consignado_portfolio_screenshots_sanitized/10-funnel-manager-priorities.png)
+
+### 3. Portfolio & Opportunities
+
+**Portfolio potential and opportunity indicators**
 
 ![Portfolio and Opportunities](screenshots/consignado_portfolio_screenshots_sanitized/03-portfolio-opportunities.png)
 
-### Financial Results
+**Opportunity radar and prioritized commercial actions**
+
+![Opportunity Radar](screenshots/consignado_portfolio_screenshots_sanitized/04-opportunity-radar.png)
+
+### 4. Financial Results
+
+**Financial KPIs and comparative analysis**
 
 ![Financial Results](screenshots/consignado_portfolio_screenshots_sanitized/05-financial-results.png)
 
-### Commercial Performance
+**Financial detail by operation and commercial partner**
+
+![Financial Detail by Operation](screenshots/consignado_portfolio_screenshots_sanitized/11-financial-detail-by-operation.png)
+
+### 5. Commercial Performance
+
+**Performance, funnel efficiency, and opportunity potential**
 
 ![Commercial Performance](screenshots/consignado_portfolio_screenshots_sanitized/06-commercial-performance.png)
 
-### Reconciliation & Delinquency
+**Performance radar and manager-level prioritization**
+
+![Commercial Performance Radar](screenshots/consignado_portfolio_screenshots_sanitized/12-commercial-performance-radar.png)
+
+### 6. Reconciliation & Delinquency
+
+**Reconciliation flow, exposure, and exception causes**
 
 ![Reconciliation Overview](screenshots/consignado_portfolio_screenshots_sanitized/07-reconciliation-overview.png)
 
-> Additional sanitized evidence, including the **Opportunity Radar** and **Reconciliation Monitoring** views, is available in [Screenshot Evidence](screenshots/README.md).
+**Aging, reconciliation monitoring, and priority actions**
+
+![Reconciliation Monitoring](screenshots/consignado_portfolio_screenshots_sanitized/08-reconciliation-monitoring.png)
+
+> The screenshots are sanitized for public presentation and use simulated analytical values.
 
 ## Opportunity scoring
 
