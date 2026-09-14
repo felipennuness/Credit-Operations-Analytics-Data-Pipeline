@@ -7,22 +7,23 @@
 ![MySQL](https://img.shields.io/badge/MySQL-Relational%20Database-4479A1)
 ![SQLAlchemy](https://img.shields.io/badge/SQLAlchemy-Database%20Loading-D71F00)
 
-> **Public portfolio case study based on a real credit operations analytics project.** Personal data, client information, confidential identifiers, production credentials, and proprietary data are excluded or anonymized. Dashboard values shown in the public evidence are simulated.
+> **Public portfolio case study based on a real credit-operations analytics project.** Personal data, client information, confidential identifiers, production credentials, and proprietary data are excluded or anonymized. Dashboard values shown in the public evidence are simulated.
 
 ## Overview
 
-This project documents an end-to-end **credit operations analytics solution** combining data engineering, relational modeling, Qlik data preparation, business rules, opportunity scoring, financial analysis, commercial performance, and reconciliation monitoring.
+This project documents a credit-operations solution that combines practical **data-engineering work** with a **Qlik analytical application** for executive monitoring, commercial analysis, opportunity prioritization, financial performance, and reconciliation.
 
-The solution was designed to transform operational credit data into an analytical environment capable of supporting both **management visibility** and **action-oriented commercial decisions**.
+The portfolio intentionally documents two complementary components:
 
-The project covers two complementary layers:
+1. **Data engineering** — spreadsheet/operational ingestion, cleaning, typing, normalization, relational modeling, and MySQL loading with Python / Pandas and SQLAlchemy / PyMySQL.
+2. **Qlik analytics** — prepared analytical datasets, QVD structures, associative modeling, business rules, opportunity scoring, KPIs, and dashboards.
 
-1. **Data pipeline and preparation** — ingestion, cleaning, typing, transformation, normalization, and relational loading.
-2. **Qlik analytics application** — associative modeling, KPIs, business rules, opportunity prioritization, financial analysis, commercial performance, and reconciliation.
+> The public documentation does **not** claim a directly validated automated lineage from the MySQL staging layer into the QVD layer unless that connection is explicitly verified.
 
-## End-to-end architecture
+## Solution components
 
 ```text
+DATA ENGINEERING COMPONENT
 Operational / Spreadsheet Sources
               |
               v
@@ -35,19 +36,19 @@ Operational / Spreadsheet Sources
  Business Transformations
               |
               v
-     Relational Modeling
+ Relational Normalization
               |
               v
  SQLAlchemy / PyMySQL
               |
               v
-           MySQL
+            MySQL
+
+QLIK ANALYTICS COMPONENT
+Prepared Analytical Sources
               |
               v
-   Qlik Preparation Layer
-              |
-              v
-             QVDs
+     QVD / Preparation Layer
               |
               v
  Qlik Associative Data Model
@@ -59,146 +60,102 @@ Operational / Spreadsheet Sources
      Analytical Application
 ```
 
+See [Architecture](architecture/README.md).
+
 ## Data engineering work
 
-The data pipeline includes practical ETL work such as:
+The data-engineering component includes practical ETL work such as:
 
-- Spreadsheet ingestion with **Python / Pandas**
-- Data type validation and normalization
-- Null and empty-string treatment
-- Date and numeric field preparation
-- Credit contract normalization
-- Transformation of repeating release fields into a relational structure
-- Relational database loading with **SQLAlchemy / PyMySQL**
-- MySQL target modeling
-- Data validation before and after load
-- Troubleshooting of schema and type incompatibilities
+- spreadsheet ingestion with **Python / Pandas**;
+- data-type validation and normalization;
+- null and empty-string treatment;
+- date and numeric field preparation;
+- preservation of credit-contract identifiers;
+- normalization of repeating release fields;
+- relational database loading with **SQLAlchemy / PyMySQL**;
+- MySQL target modeling and validation;
+- troubleshooting of schema and type incompatibilities.
 
-A representative example from the ETL involved contract identifiers that contained characters such as hyphens and slashes. These identifiers had to be modeled as **text rather than numeric values** to preserve the original business key.
+One representative issue involved contract identifiers containing hyphens and slashes. These identifiers had to be modeled as **text rather than numeric values** to preserve the original business key.
 
-Another transformation converted repeating release fields into a normalized release fact structure, avoiding a wide spreadsheet-style model in the analytical database.
+Another transformation converted repeating release fields into a normalized release structure instead of keeping a wide spreadsheet-style model.
 
 See [ETL & Data Engineering](etl/README.md).
 
 ## Qlik analytical model
 
-The Qlik application consolidates multiple subject areas, including:
+The analytical application consolidates subject areas including:
 
-- Contracts
-- Proposals
-- Customers
-- Commercial links / portfolio relationships
-- Targets and regional structure
-- Opportunity scoring
-- Manager performance
-- Financial metrics
-- Reconciliation and delinquency monitoring
+- contracts;
+- proposals;
+- customers;
+- commercial links / portfolio relationships;
+- targets and regional structures;
+- opportunity scoring;
+- manager performance;
+- financial metrics;
+- reconciliation and delinquency monitoring.
 
-The model uses a QVD-based analytical layer and an associative Qlik model to connect operational, commercial, financial, and management views.
+The Qlik layer uses prepared analytical datasets and QVD-based structures to support an associative model across operational, commercial, financial, and management perspectives.
 
 See [Data Model](data-model/README.md).
 
 ## Analytical application
 
-The application is organized into six business views.
+The application is organized into six business views:
 
-### 1. Executive Overview
-
-Provides a consolidated management view of the credit operation, including net production, contracts produced, customers served, estimated revenue, total commission, recurrence, production evolution, operation mix, regional target performance, and target gaps.
-
-### 2. Commercial Funnel
-
-Focuses on proposal conversion and operational bottlenecks through proposals received, volume, decision and approval rates, non-converted value, in-progress proposals, SLA monitoring, and regional/manager analysis.
-
-### 3. Portfolio & Opportunities
-
-Transforms portfolio behavior into actionable commercial opportunities through qualified opportunities, estimated financial potential, priority classification, maturity and recurrence signals, opportunity radar, and capture simulation.
-
-### 4. Financial Results
-
-Analyzes the economics of originated operations through production, estimated revenue, commission, spread, CET, operation mix, partner commission weight, and financial evolution.
-
-### 5. Commercial Performance
-
-Combines realized results, funnel efficiency, and portfolio potential to support manager-level performance analysis and prioritization.
-
-### 6. Reconciliation & Delinquency
-
-Monitors expected, discounted, and transferred values, financial exposure, failures, overdue contracts, reconciliation causes, aging, reconciliation performance, and action queues.
+1. **Executive Overview** — production, contracts, customers, revenue, commission, recurrence, evolution, operation mix, target performance, and target gaps.
+2. **Commercial Funnel** — proposal volume, decision and approval rates, non-converted value, in-progress proposals, SLA monitoring, and regional/manager analysis.
+3. **Portfolio & Opportunities** — qualified opportunities, estimated financial potential, priority classification, maturity, recurrence, and opportunity radar.
+4. **Financial Results** — production, estimated revenue, commission, spread, CET, operation mix, partner weight, and financial evolution.
+5. **Commercial Performance** — realized results, funnel efficiency, opportunity potential, and manager-level prioritization.
+6. **Reconciliation & Delinquency** — expected, discounted, and transferred values, exposure, failures, aging, reconciliation causes, and action queues.
 
 See [Dashboard & Business Views](dashboards/README.md).
 
 ## Dashboard gallery
 
-Each analytical area below is represented by the two complementary screens used in the Qlik application.
-
 ### 1. Executive Overview
 
-**Executive KPIs and operational overview**
-
 ![Executive Overview](screenshots/consignado_portfolio_screenshots_sanitized/01-executive-overview.png)
-
-**Regional performance and target analysis**
 
 ![Executive Regional Performance](screenshots/consignado_portfolio_screenshots_sanitized/09-executive-regional-performance.png)
 
 ### 2. Commercial Funnel
 
-**Funnel conversion and SLA overview**
-
 ![Commercial Funnel](screenshots/consignado_portfolio_screenshots_sanitized/02-commercial-funnel.png)
-
-**Manager-level funnel priorities and operational follow-up**
 
 ![Funnel Manager Priorities](screenshots/consignado_portfolio_screenshots_sanitized/10-funnel-manager-priorities.png)
 
 ### 3. Portfolio & Opportunities
 
-**Portfolio potential and opportunity indicators**
-
 ![Portfolio and Opportunities](screenshots/consignado_portfolio_screenshots_sanitized/03-portfolio-opportunities.png)
-
-**Opportunity radar and prioritized commercial actions**
 
 ![Opportunity Radar](screenshots/consignado_portfolio_screenshots_sanitized/04-opportunity-radar.png)
 
 ### 4. Financial Results
 
-**Financial KPIs and comparative analysis**
-
 ![Financial Results](screenshots/consignado_portfolio_screenshots_sanitized/05-financial-results.png)
-
-**Financial detail by operation and commercial partner**
 
 ![Financial Detail by Operation](screenshots/consignado_portfolio_screenshots_sanitized/11-financial-detail-by-operation.png)
 
 ### 5. Commercial Performance
 
-**Performance, funnel efficiency, and opportunity potential**
-
 ![Commercial Performance](screenshots/consignado_portfolio_screenshots_sanitized/06-commercial-performance.png)
-
-**Performance radar and manager-level prioritization**
 
 ![Commercial Performance Radar](screenshots/consignado_portfolio_screenshots_sanitized/12-commercial-performance-radar.png)
 
 ### 6. Reconciliation & Delinquency
 
-**Reconciliation flow, exposure, and exception causes**
-
 ![Reconciliation Overview](screenshots/consignado_portfolio_screenshots_sanitized/07-reconciliation-overview.png)
-
-**Aging, reconciliation monitoring, and priority actions**
 
 ![Reconciliation Monitoring](screenshots/consignado_portfolio_screenshots_sanitized/08-reconciliation-monitoring.png)
 
-> The screenshots are sanitized for public presentation and use simulated analytical values.
+> Screenshots are sanitized for public presentation and use simulated analytical values.
 
 ## Opportunity scoring
 
-A dedicated analytical layer identifies and prioritizes commercial opportunities based on portfolio behavior.
-
-The model includes signals such as:
+The analytical model includes an opportunity-prioritization layer using signals such as:
 
 ```text
 Contract Maturity
@@ -216,7 +173,7 @@ Priority Classification
 Estimated Financial Potential
 ```
 
-The public portfolio documents the concepts and analytical design without exposing proprietary scoring weights or confidential business rules.
+The public portfolio documents the analytical concept without exposing proprietary scoring weights.
 
 See [Business Rules & Opportunity Scoring](business-rules/README.md).
 
@@ -231,36 +188,25 @@ See [Business Rules & Opportunity Scoring](business-rules/README.md).
 | Analytical preparation | QVD, Qlik Script |
 | Analytics | Qlik Sense / Qlik Cloud |
 | Modeling | Associative Data Model |
-| Business analytics | KPIs, calculated measures, commercial scoring |
+| Business analytics | KPIs, calculated measures, opportunity scoring |
 
 ## Key technical challenges
-
-The project required solving practical data and modeling problems, including:
 
 - Incorrect source data types
 - Empty strings mixed with numeric values
 - Nullable integer handling
-- Normalization of repeated spreadsheet columns
 - Preservation of business identifiers
+- Normalization of repeated spreadsheet columns
 - Relational loading errors
-- Data validation between source, database, and analytical layers
+- Data validation across engineering and analytical components
 - Integration of operational, commercial, financial, and reconciliation perspectives
 - Converting portfolio behavior into actionable opportunity signals
 
 ## Privacy & portfolio safety
 
-The original project contains sensitive credit and customer information. Public screenshots were curated and sanitized before publication, and the analytical values displayed in this portfolio version are simulated.
+The original project contains sensitive credit and customer information. Public screenshots were curated and sanitized before publication, and the analytical values shown in this portfolio version are simulated.
 
-The public repository does **not** publish:
-
-- CPF or personal identifiers
-- Customer names
-- Real contract identifiers tied to customers
-- Production credentials
-- Connection strings
-- Internal database/server information
-- Confidential business datasets
-- Proprietary scoring weights
+The repository does **not** publish CPF/personal identifiers, customer names, production credentials, internal infrastructure details, confidential datasets, or proprietary scoring weights.
 
 See [Privacy & Anonymization](privacy/README.md).
 
