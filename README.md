@@ -7,7 +7,7 @@
 ![MySQL](https://img.shields.io/badge/MySQL-Relational%20Database-4479A1)
 ![SQLAlchemy](https://img.shields.io/badge/SQLAlchemy-Database%20Loading-D71F00)
 
-> **Public portfolio case study based on a real credit operations analytics project.** Personal data, client information, confidential identifiers, production credentials, and proprietary data are excluded or anonymized.
+> **Public portfolio case study based on a real credit operations analytics project.** Personal data, client information, confidential identifiers, production credentials, and proprietary data are excluded or anonymized. Dashboard values shown in the public evidence are simulated.
 
 ## Overview
 
@@ -104,97 +104,57 @@ The application is organized into six business views.
 
 ### 1. Executive Overview
 
-Provides a consolidated management view of the credit operation, including:
-
-- Net production
-- Contracts produced
-- Customers served
-- Estimated revenue
-- Total commission
-- Portfolio recurrence
-- Production evolution
-- Operation mix
-- Regional target performance
-- Units with the largest target gaps
+Provides a consolidated management view of the credit operation, including net production, contracts produced, customers served, estimated revenue, total commission, recurrence, production evolution, operation mix, regional target performance, and target gaps.
 
 ### 2. Commercial Funnel
 
-Focuses on proposal conversion and operational bottlenecks:
-
-- Proposals received
-- Proposal volume
-- Decision rate
-- Approval rate
-- Non-converted value
-- Proposals in progress
-- SLA monitoring
-- Value in progress above the defined time threshold
-- Funnel performance by regional and manager
+Focuses on proposal conversion and operational bottlenecks through proposals received, volume, decision and approval rates, non-converted value, in-progress proposals, SLA monitoring, and regional/manager analysis.
 
 ### 3. Portfolio & Opportunities
 
-Transforms portfolio behavior into actionable commercial opportunities:
-
-- Qualified opportunities
-- Estimated financial potential
-- High-priority opportunities
-- High-priority potential
-- Portfolio potential rate
-- Potential average ticket
-- Contract maturity signals
-- Recurrence signals
-- Time since last contract
-- Opportunity prioritization
-- Commercial opportunity radar
-- Capture simulation
+Transforms portfolio behavior into actionable commercial opportunities through qualified opportunities, estimated financial potential, priority classification, maturity and recurrence signals, opportunity radar, and capture simulation.
 
 ### 4. Financial Results
 
-Analyzes the economics of originated operations:
-
-- Net production
-- Estimated revenue
-- Total commission
-- Commission as a percentage of production
-- Average spread
-- Average CET
-- Revenue versus commission by operation type
-- Financial conditions by product mix
-- Commission weight by commercial partner
-- Revenue and commission evolution
+Analyzes the economics of originated operations through production, estimated revenue, commission, spread, CET, operation mix, partner commission weight, and financial evolution.
 
 ### 5. Commercial Performance
 
-Combines realized results with funnel efficiency and portfolio potential:
-
-- Net production by manager
-- Approval rate
-- Non-converted value
-- Qualified opportunities
-- Estimated financial potential
-- Portfolio potential percentage
-- Funnel efficiency
-- High-priority opportunity concentration
-- Action-oriented manager performance matrix
+Combines realized results, funnel efficiency, and portfolio potential to support manager-level performance analysis and prioritization.
 
 ### 6. Reconciliation & Delinquency
 
-Monitors financial reconciliation and operational exceptions:
-
-- Expected value
-- Reconciliation rate
-- Financial exposure
-- Discount failure
-- Transfer failure
-- Contracts with overdue installments
-- Expected → discounted → transferred reconciliation flow
-- Root causes of reconciliation differences
-- Reconciliation evolution
-- Aging of overdue exceptions
-- Performance by payroll/reconciliation entity
-- Priority action queue
+Monitors expected, discounted, and transferred values, financial exposure, failures, overdue contracts, reconciliation causes, aging, reconciliation performance, and action queues.
 
 See [Dashboard & Business Views](dashboards/README.md).
+
+## Dashboard gallery
+
+### Executive Overview
+
+![Executive Overview](screenshots/consignado_portfolio_screenshots_sanitized/01-executive-overview.png)
+
+### Commercial Funnel
+
+![Commercial Funnel](screenshots/consignado_portfolio_screenshots_sanitized/02-commercial-funnel.png)
+
+### Portfolio & Opportunities
+
+![Portfolio and Opportunities](screenshots/consignado_portfolio_screenshots_sanitized/03-portfolio-opportunities.png)
+
+### Financial Results
+
+![Financial Results](screenshots/consignado_portfolio_screenshots_sanitized/05-financial-results.png)
+
+### Commercial Performance
+
+![Commercial Performance](screenshots/consignado_portfolio_screenshots_sanitized/06-commercial-performance.png)
+
+### Reconciliation & Delinquency
+
+![Reconciliation Overview](screenshots/consignado_portfolio_screenshots_sanitized/07-reconciliation-overview.png)
+
+> Additional sanitized evidence, including the **Opportunity Radar** and **Reconciliation Monitoring** views, is available in [Screenshot Evidence](screenshots/README.md).
 
 ## Opportunity scoring
 
@@ -251,9 +211,9 @@ The project required solving practical data and modeling problems, including:
 
 ## Privacy & portfolio safety
 
-The original project contains sensitive credit and customer information.
+The original project contains sensitive credit and customer information. Public screenshots were curated and sanitized before publication, and the analytical values displayed in this portfolio version are simulated.
 
-The public repository therefore does **not** publish:
+The public repository does **not** publish:
 
 - CPF or personal identifiers
 - Customer names
@@ -264,8 +224,6 @@ The public repository therefore does **not** publish:
 - Confidential business datasets
 - Proprietary scoring weights
 
-Screenshots included later in this repository will be sanitized before publication.
-
 See [Privacy & Anonymization](privacy/README.md).
 
 ## Repository structure
@@ -273,6 +231,7 @@ See [Privacy & Anonymization](privacy/README.md).
 ```text
 .
 ├── README.md
+├── PROJECT_SCOPE.md
 ├── architecture/
 │   └── README.md
 ├── etl/
@@ -286,11 +245,13 @@ See [Privacy & Anonymization](privacy/README.md).
 ├── privacy/
 │   └── README.md
 └── screenshots/
-    └── README.md
+    ├── README.md
+    └── consignado_portfolio_screenshots_sanitized/
 ```
 
 ## Documentation
 
+- [Verified Project Scope](PROJECT_SCOPE.md)
 - [Architecture](architecture/README.md)
 - [ETL & Data Engineering](etl/README.md)
 - [Data Model](data-model/README.md)
