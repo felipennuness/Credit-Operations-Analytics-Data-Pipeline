@@ -2,98 +2,68 @@
 
 ## Purpose
 
-This folder will contain a curated set of sanitized screenshots from the Qlik application.
+This folder contains a curated set of sanitized screenshots from the Qlik application.
 
-The objective is to demonstrate the analytical design and business coverage without publishing personal data, confidential identifiers, or internal company information.
+The objective is to demonstrate the analytical design and business coverage without publishing personal data, confidential identifiers, or internal company information. The values shown in these public screenshots are simulated.
 
-## Planned public evidence
+## 1. Executive Overview
 
-The application contains six major business views. The public portfolio should include one strong screenshot for each view, plus selected secondary screenshots where they add technical value.
+Shows the consolidated management view with production, contracts, customers, revenue, commission, recurrence, monthly evolution, operation mix, and regional performance.
 
-### 1. Executive Overview
+![Executive Overview](consignado_portfolio_screenshots_sanitized/01-executive-overview.png)
 
-Recommended evidence:
+## 2. Commercial Funnel
 
-- KPI row
-- production evolution
-- operation mix
-- regional target performance
+Shows proposal volume, decision and approval rates, non-converted value, in-progress value, SLA analysis, and regional concentration of delayed proposals.
 
-### 2. Commercial Funnel
+![Commercial Funnel](consignado_portfolio_screenshots_sanitized/02-commercial-funnel.png)
 
-Recommended evidence:
+## 3. Portfolio & Opportunities
 
-- proposal KPIs
-- proposal outcome
-- SLA / in-progress analysis
-- non-converted value
+Shows qualified opportunities, estimated financial potential, high-priority opportunities, portfolio potential, regional opportunity distribution, and capture simulation.
 
-### 3. Portfolio & Opportunities
+![Portfolio and Opportunities](consignado_portfolio_screenshots_sanitized/03-portfolio-opportunities.png)
 
-Recommended evidence:
+## 4. Opportunity Radar
 
-- opportunity KPIs
-- potential by region
-- capture simulator
-- opportunity radar / priority list
+Shows the action-oriented opportunity layer based on maturity, recurrence, time since last contract, estimated potential, and priority classification. Visible personal and record-level identifiers were sanitized for publication.
 
-### 4. Financial Results
+![Opportunity Radar](consignado_portfolio_screenshots_sanitized/04-opportunity-radar.png)
 
-Recommended evidence:
+## 5. Financial Results
 
-- financial KPI row
-- revenue versus commission
-- spread versus CET
-- operation-level financial detail
+Shows net production, estimated revenue, total commission, commission-to-production ratio, spread, CET, and comparative financial analysis by operation type.
 
-### 5. Commercial Performance
+![Financial Results](consignado_portfolio_screenshots_sanitized/05-financial-results.png)
 
-Recommended evidence:
+## 6. Commercial Performance
 
-- realized production versus potential
-- funnel efficiency
-- high-priority potential concentration
-- action-oriented manager table
+Combines realized production, funnel efficiency, approval rate, non-converted value, portfolio opportunity potential, and manager-level decision support. Visible employee names were sanitized for publication.
 
-### 6. Reconciliation & Delinquency
+![Commercial Performance](consignado_portfolio_screenshots_sanitized/06-commercial-performance.png)
 
-Recommended evidence:
+## 7. Reconciliation & Delinquency Overview
 
-- reconciliation KPI row
-- expected → discounted → transferred flow
-- exception causes
-- reconciliation evolution / aging
-- priority action queue
+Shows expected, discounted, and transferred amounts, reconciliation rate, financial exposure, discount/transfer failures, overdue contracts, and root causes of financial divergence.
 
-## Sanitization rules
+![Reconciliation Overview](consignado_portfolio_screenshots_sanitized/07-reconciliation-overview.png)
 
-Before publication, screenshots must be checked for:
+## 8. Reconciliation Monitoring
 
-- CPF or personal identifiers
-- real contract numbers
-- customer names
-- internal employee names when unnecessary
-- client / company information that should not be public
-- internal emails / usernames
-- confidential operational identifiers
+Shows the historical evolution of reconciliation differences, aging of overdue exceptions, reconciliation performance by entity, and operational follow-up indicators.
 
-Where possible, sensitive values will be replaced with neutral labels such as:
+![Reconciliation Monitoring](consignado_portfolio_screenshots_sanitized/08-reconciliation-monitoring.png)
 
-```text
-Manager A
-Manager B
-Customer 001
-Contract XXXX
-Regional A
-Partner 01
-```
+## Sanitization applied
 
-## Main README strategy
+Before publication, the evidence set was reviewed to reduce exposure of unnecessary identifying information. The public versions include measures such as:
 
-The main repository README should not contain every screenshot.
+- removal of the Qlik tenant/company/user header;
+- masking or blurring of visible personal names where required;
+- masking of record-level identifying information where required;
+- exclusion of credentials, connection information, and internal infrastructure identifiers;
+- use of simulated analytical values for the public portfolio case.
 
-A smaller set of representative visuals will be embedded in the README, while this folder can contain the complete sanitized evidence set.
+## Evidence strategy
 
-## Current status
-
-The source screenshots have been collected. Sanitized public versions are the next documentation step.
+The main repository README embeds the six principal business views. This page preserves the broader evidence set, including the Opportunity Radar and the additional Reconciliation Monitoring view.
