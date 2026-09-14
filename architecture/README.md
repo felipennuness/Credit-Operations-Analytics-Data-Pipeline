@@ -4,54 +4,54 @@
 
 This project combines a data engineering pipeline with a Qlik analytical application for credit operations.
 
-The architecture separates operational ingestion, transformation, relational storage, analytical preparation, and business consumption.
+The architecture separates operational ingestion, transformation, relational storage, analytical preparation, associative modeling, business rules, and analytical consumption.
 
-## End-to-end flow
+## End-to-end architecture
 
-```text
-Operational Files / Spreadsheet Sources
-                 |
-                 v
-         Python / Pandas ETL
-                 |
-                 v
-       Data Cleaning & Typing
-                 |
-                 v
-      Business Transformations
-                 |
-                 v
-       Relational Normalization
-                 |
-                 v
-     SQLAlchemy / PyMySQL Load
-                 |
-                 v
-              MySQL
-                 |
-                 v
-       Qlik Preparation Layer
-                 |
-                 v
-               QVDs
-                 |
-                 v
-      Qlik Associative Model
-                 |
-                 v
-     Business Rules & Measures
-                 |
-                 v
-          Qlik Application
+```mermaid
+flowchart TD
+    A[Operational Files / Spreadsheet Sources]
+    B[Python + Pandas ETL]
+    C[Data Cleaning & Type Validation]
+    D[Business Transformations]
+    E[Relational Normalization]
+    F[SQLAlchemy + PyMySQL Load]
+    G[(MySQL)]
+    H[Qlik Preparation Layer]
+    I[(QVDs)]
+    J[Qlik Associative Data Model]
+    K[Business Rules / Measures / Opportunity Scoring]
+    L[Qlik Analytical Application]
+
+    A --> B
+    B --> C
+    C --> D
+    D --> E
+    E --> F
+    F --> G
+    G --> H
+    H --> I
+    I --> J
+    J --> K
+    K --> L
+
+    L --> M[Executive Overview]
+    L --> N[Commercial Funnel]
+    L --> O[Portfolio & Opportunities]
+    L --> P[Financial Results]
+    L --> Q[Commercial Performance]
+    L --> R[Reconciliation & Delinquency]
 ```
+
+This diagram represents the portfolio architecture documented across the project's data-engineering and analytical layers.
 
 ## Architecture layers
 
 ### 1. Operational source layer
 
-The original operational data contained credit contracts, proposals, customer information, financial values, rates, commissions, release data, organizational attributes, and other business fields.
+The operational source contains credit contracts, proposals, customer information, financial values, rates, commissions, release data, organizational attributes, and other business fields.
 
-The public portfolio does not include the original confidential dataset.
+The public portfolio does not include the original confidential dataset. Dashboard values shown in the published evidence are simulated.
 
 ### 2. ETL layer
 
@@ -68,37 +68,50 @@ Key responsibilities included:
 - repeated-column normalization
 - creation of relational output structures
 
+A key example was preserving contract identifiers as text because the business key can contain characters such as hyphens and slashes.
+
 ### 3. Relational database layer
 
 The transformed datasets were loaded into MySQL through SQLAlchemy / PyMySQL.
 
-The relational layer provides a structured foundation for downstream analytical preparation and validation.
+The relational layer provides a structured foundation for data validation and downstream analytical preparation.
 
 ### 4. Analytical preparation layer
 
-The Qlik application consumes prepared analytical datasets through QVD-based structures.
+The Qlik application uses prepared analytical datasets through QVD-based structures.
 
-The QVD layer separates operational preparation from final dashboard consumption and supports a cleaner analytical model.
+This layer separates preparation from dashboard consumption and organizes facts, dimensions, intermediate structures, targets, performance datasets, opportunities, and reconciliation data.
 
 ### 5. Qlik associative model
 
-The application combines facts, dimensions, relationship/intermediate tables, targets, regional structures, opportunity logic, performance data, and reconciliation information.
-
-The model supports cross-analysis between:
+The Qlik model connects multiple business domains and supports cross-analysis between:
 
 - contracts
 - proposals
-- customers
+- customers and portfolio relationships
 - managers
 - regional structures
-- commercial portfolios
+- targets
 - opportunities
 - financial measures
 - reconciliation events
 
-### 6. Business consumption layer
+### 6. Business rules and analytical logic
 
-The final application provides six analytical views:
+The semantic layer converts prepared data into business indicators and actionable signals, including:
+
+- production and financial KPIs
+- proposal funnel metrics
+- SLA analysis
+- target and gap analysis
+- opportunity maturity and recurrence signals
+- opportunity scoring and priority classification
+- estimated financial potential
+- reconciliation exposure and exception monitoring
+
+### 7. Business consumption layer
+
+The final Qlik application provides six analytical views:
 
 1. Executive Overview
 2. Commercial Funnel
@@ -106,6 +119,8 @@ The final application provides six analytical views:
 4. Financial Results
 5. Commercial Performance
 6. Reconciliation & Delinquency
+
+Together, these views move from executive monitoring to operational and commercial action.
 
 ## Design principles
 
