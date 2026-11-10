@@ -1,83 +1,83 @@
-# Screenshot Evidence
+# Evidências em Capturas de Tela
 
-## Purpose
+## Objetivo
 
-This folder contains a curated set of sanitized screenshots from the Qlik application.
+Esta pasta contém um conjunto selecionado de capturas de tela tratadas da aplicação Qlik.
 
-The objective is to demonstrate the analytical design and business coverage without publishing personal data, confidential identifiers, or internal company information. The values shown in these public screenshots are simulated.
+O objetivo é demonstrar o design analítico e a cobertura de negócio sem publicar dados pessoais, identificadores confidenciais ou informações internas da empresa. Os valores exibidos nestas capturas públicas são simulados.
 
-The application is represented here by **six analytical dashboards, with two complementary screenshots for each dashboard**.
+A aplicação é representada aqui por **seis dashboards analíticos, com duas capturas complementares para cada dashboard**.
 
-## 1. Executive Overview
+## 1. Visão Executiva
 
-The first screen presents the high-level management view with production, contracts, customers, revenue, commission, recurrence, monthly evolution, and operation mix.
+A primeira tela apresenta a visão gerencial de alto nível, com produção, contratos, clientes, receita, comissão, recorrência, evolução mensal e composição das operações.
 
-![Executive Overview](consignado_portfolio_screenshots_sanitized/01-executive-overview.png)
+![Visão Executiva](consignado_portfolio_screenshots_sanitized/01-executive-overview.png)
 
-The second screen complements the executive view with regional performance, target attainment, and target-gap analysis.
+A segunda tela complementa a visão executiva com desempenho regional, atingimento de metas e análise das diferenças em relação às metas.
 
-![Executive Regional Performance](consignado_portfolio_screenshots_sanitized/09-executive-regional-performance.png)
+![Desempenho Regional Executivo](consignado_portfolio_screenshots_sanitized/09-executive-regional-performance.png)
 
-## 2. Commercial Funnel
+## 2. Funil Comercial
 
-The first screen presents proposal volume, decision and approval rates, non-converted value, in-progress value, and SLA indicators.
+A primeira tela apresenta volume de propostas, taxas de decisão e aprovação, valor não convertido, valor em andamento e indicadores de SLA.
 
-![Commercial Funnel](consignado_portfolio_screenshots_sanitized/02-commercial-funnel.png)
+![Funil Comercial](consignado_portfolio_screenshots_sanitized/02-commercial-funnel.png)
 
-The second screen expands the funnel analysis with manager-level priorities and operational follow-up.
+A segunda tela amplia a análise do funil com prioridades por gestor e acompanhamento operacional.
 
-![Funnel Manager Priorities](consignado_portfolio_screenshots_sanitized/10-funnel-manager-priorities.png)
+![Prioridades dos Gestores no Funil](consignado_portfolio_screenshots_sanitized/10-funnel-manager-priorities.png)
 
-## 3. Portfolio & Opportunities
+## 3. Carteira e Oportunidades
 
-The first screen presents qualified opportunities, estimated financial potential, high-priority opportunities, portfolio potential, regional distribution, and capture simulation.
+A primeira tela apresenta oportunidades qualificadas, potencial financeiro estimado, oportunidades de alta prioridade, potencial da carteira, distribuição regional e simulação de captação.
 
-![Portfolio and Opportunities](consignado_portfolio_screenshots_sanitized/03-portfolio-opportunities.png)
+![Carteira e Oportunidades](consignado_portfolio_screenshots_sanitized/03-portfolio-opportunities.png)
 
-The second screen presents the action-oriented opportunity radar based on maturity, recurrence, time since last contract, estimated potential, and priority classification.
+A segunda tela apresenta o radar de oportunidades orientado à ação, com base em maturidade, recorrência, tempo desde o último contrato, potencial estimado e classificação de prioridade.
 
-![Opportunity Radar](consignado_portfolio_screenshots_sanitized/04-opportunity-radar.png)
+![Radar de Oportunidades](consignado_portfolio_screenshots_sanitized/04-opportunity-radar.png)
 
-## 4. Financial Results
+## 4. Resultados Financeiros
 
-The first screen presents net production, estimated revenue, total commission, commission-to-production ratio, spread, CET, and comparative financial analysis.
+A primeira tela apresenta produção líquida, receita estimada, comissão total, relação comissão/produção, spread, CET e análise financeira comparativa.
 
-![Financial Results](consignado_portfolio_screenshots_sanitized/05-financial-results.png)
+![Resultados Financeiros](consignado_portfolio_screenshots_sanitized/05-financial-results.png)
 
-The second screen expands the analysis with financial detail by operation and commercial partner.
+A segunda tela amplia a análise com detalhes financeiros por operação e parceiro comercial.
 
-![Financial Detail by Operation](consignado_portfolio_screenshots_sanitized/11-financial-detail-by-operation.png)
+![Detalhamento Financeiro por Operação](consignado_portfolio_screenshots_sanitized/11-financial-detail-by-operation.png)
 
-## 5. Commercial Performance
+## 5. Desempenho Comercial
 
-The first screen combines realized production, funnel efficiency, approval rate, non-converted value, and portfolio opportunity potential.
+A primeira tela combina produção realizada, eficiência do funil, taxa de aprovação, valor não convertido e potencial de oportunidades da carteira.
 
-![Commercial Performance](consignado_portfolio_screenshots_sanitized/06-commercial-performance.png)
+![Desempenho Comercial](consignado_portfolio_screenshots_sanitized/06-commercial-performance.png)
 
-The second screen complements the analysis with a performance radar and manager-level prioritization view.
+A segunda tela complementa a análise com um radar de desempenho e uma visão de priorização por gestor.
 
-![Commercial Performance Radar](consignado_portfolio_screenshots_sanitized/12-commercial-performance-radar.png)
+![Radar de Desempenho Comercial](consignado_portfolio_screenshots_sanitized/12-commercial-performance-radar.png)
 
-## 6. Reconciliation & Delinquency
+## 6. Conciliação e Inadimplência
 
-The first screen presents expected, discounted, and transferred amounts, reconciliation rate, financial exposure, failures, overdue contracts, and root causes of financial divergence.
+A primeira tela apresenta valores esperados, descontados e transferidos, taxa de conciliação, exposição financeira, falhas, contratos em atraso e causas principais das divergências financeiras.
 
-![Reconciliation Overview](consignado_portfolio_screenshots_sanitized/07-reconciliation-overview.png)
+![Visão Geral da Conciliação](consignado_portfolio_screenshots_sanitized/07-reconciliation-overview.png)
 
-The second screen complements the view with reconciliation evolution, aging of overdue exceptions, entity performance, and operational follow-up indicators.
+A segunda tela complementa a visão com evolução da conciliação, envelhecimento das exceções em atraso, desempenho por entidade e indicadores de acompanhamento operacional.
 
-![Reconciliation Monitoring](consignado_portfolio_screenshots_sanitized/08-reconciliation-monitoring.png)
+![Monitoramento da Conciliação](consignado_portfolio_screenshots_sanitized/08-reconciliation-monitoring.png)
 
-## Sanitization applied
+## Tratamento aplicado
 
-Before publication, the evidence set was reviewed to reduce exposure of unnecessary identifying information. The public versions include measures such as:
+Antes da publicação, o conjunto de evidências foi revisado para reduzir a exposição de informações identificáveis desnecessárias. As versões públicas incluem medidas como:
 
-- removal of the Qlik tenant/company/user header;
-- masking or blurring of visible personal names where required;
-- masking of record-level identifying information where required;
-- exclusion of credentials, connection information, and internal infrastructure identifiers;
-- use of simulated analytical values for the public portfolio case.
+- remoção do cabeçalho com tenant / empresa / usuário do Qlik;
+- mascaramento ou desfoque de nomes pessoais visíveis quando necessário;
+- mascaramento de informações identificáveis em nível de registro quando necessário;
+- exclusão de credenciais, informações de conexão e identificadores internos de infraestrutura;
+- utilização de valores analíticos simulados no estudo de caso público.
 
-## Evidence strategy
+## Estratégia de evidências
 
-The twelve screenshots preserve the two-screen structure of each analytical dashboard while keeping the public case focused on business value, analytical design, and decision support.
+As doze capturas preservam a estrutura de duas telas de cada dashboard analítico, mantendo o estudo de caso público focado em valor de negócio, design analítico e apoio à tomada de decisão.
