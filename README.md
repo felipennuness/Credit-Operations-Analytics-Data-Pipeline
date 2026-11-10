@@ -1,42 +1,42 @@
-# Credit Operations Analytics & Data Pipeline
+# Analytics de Operações de Crédito e Pipeline de Dados
 
-![Status](https://img.shields.io/badge/status-portfolio%20case-success)
+![Status](https://img.shields.io/badge/status-estudo%20de%20portf%C3%B3lio-success)
 ![Qlik](https://img.shields.io/badge/Qlik-Sense%20%7C%20Cloud-009845)
 ![Python](https://img.shields.io/badge/Python-ETL-3776AB)
-![Pandas](https://img.shields.io/badge/Pandas-Data%20Transformation-150458)
-![MySQL](https://img.shields.io/badge/MySQL-Relational%20Database-4479A1)
-![SQLAlchemy](https://img.shields.io/badge/SQLAlchemy-Database%20Loading-D71F00)
+![Pandas](https://img.shields.io/badge/Pandas-Transforma%C3%A7%C3%A3o%20de%20Dados-150458)
+![MySQL](https://img.shields.io/badge/MySQL-Banco%20Relacional-4479A1)
+![SQLAlchemy](https://img.shields.io/badge/SQLAlchemy-Carga%20no%20Banco-D71F00)
 
-> **Public portfolio case study based on a real credit-operations analytics project.** Personal data, client information, confidential identifiers, production credentials, and proprietary data are excluded or anonymized. Dashboard values shown in the public evidence are simulated.
+> **Estudo de caso público para portfólio, baseado em um projeto real de analytics de operações de crédito.** Dados pessoais, informações de clientes, identificadores confidenciais, credenciais de produção e dados proprietários foram excluídos ou anonimizados. Os valores exibidos nas evidências públicas dos dashboards são simulados.
 
-## Overview
+## Visão geral
 
-This project documents a credit-operations solution that combines practical **data-engineering work** with a **Qlik analytical application** for executive monitoring, commercial analysis, opportunity prioritization, financial performance, and reconciliation.
+Este projeto documenta uma solução de operações de crédito que combina atividades práticas de **engenharia de dados** com uma **aplicação analítica Qlik** para acompanhamento executivo, análise comercial, priorização de oportunidades, desempenho financeiro e conciliação.
 
-The portfolio intentionally documents two complementary components:
+O portfólio documenta intencionalmente dois componentes complementares:
 
-1. **Data engineering** — spreadsheet/operational ingestion, cleaning, typing, normalization, relational modeling, and MySQL loading with Python / Pandas and SQLAlchemy / PyMySQL.
-2. **Qlik analytics** — prepared analytical datasets, QVD structures, associative modeling, business rules, opportunity scoring, KPIs, and dashboards.
+1. **Engenharia de dados** — ingestão de planilhas e arquivos operacionais, limpeza, tipagem, normalização, modelagem relacional e carga no MySQL com Python / Pandas e SQLAlchemy / PyMySQL.
+2. **Analytics Qlik** — conjuntos de dados analíticos preparados, estruturas QVD, modelagem associativa, regras de negócio, pontuação de oportunidades, KPIs e dashboards.
 
-> The public documentation does **not** claim a directly validated automated lineage from the MySQL staging layer into the QVD layer unless that connection is explicitly verified.
+> A documentação pública **não afirma existir uma linhagem automatizada diretamente validada entre a camada de preparação MySQL e a camada QVD**, a menos que essa conexão tenha sido verificada explicitamente.
 
-## Solution components
+## Componentes da solução
 
 ```text
-DATA ENGINEERING COMPONENT
-Operational / Spreadsheet Sources
+COMPONENTE DE ENGENHARIA DE DADOS
+Fontes Operacionais / Planilhas
               |
               v
-      Python + Pandas ETL
+      ETL com Python + Pandas
               |
               v
- Cleaning / Type Validation
+ Limpeza / Validação de Tipos
               |
               v
- Business Transformations
+ Transformações de Negócio
               |
               v
- Relational Normalization
+ Normalização Relacional
               |
               v
  SQLAlchemy / PyMySQL
@@ -44,173 +44,173 @@ Operational / Spreadsheet Sources
               v
             MySQL
 
-QLIK ANALYTICS COMPONENT
-Prepared Analytical Sources
+COMPONENTE ANALÍTICO QLIK
+Fontes Analíticas Preparadas
               |
               v
-     QVD / Preparation Layer
+     QVD / Camada de Preparação
               |
               v
- Qlik Associative Data Model
+ Modelo Associativo do Qlik
               |
               v
- Business Rules / Measures
+ Regras de Negócio / Medidas
               |
               v
-     Analytical Application
+     Aplicação Analítica
 ```
 
-See [Architecture](architecture/README.md).
+Consulte [Arquitetura](architecture/README.md).
 
-## Data engineering work
+## Trabalho de engenharia de dados
 
-The data-engineering component includes practical ETL work such as:
+O componente de engenharia de dados inclui atividades práticas de ETL, como:
 
-- spreadsheet ingestion with **Python / Pandas**;
-- data-type validation and normalization;
-- null and empty-string treatment;
-- date and numeric field preparation;
-- preservation of credit-contract identifiers;
-- normalization of repeating release fields;
-- relational database loading with **SQLAlchemy / PyMySQL**;
-- MySQL target modeling and validation;
-- troubleshooting of schema and type incompatibilities.
+- ingestão de planilhas com **Python / Pandas**;
+- validação e normalização de tipos de dados;
+- tratamento de valores nulos e textos vazios;
+- preparação de campos de data e numéricos;
+- preservação de identificadores de contratos de crédito;
+- normalização de campos repetidos de liberação;
+- carga em banco de dados relacional com **SQLAlchemy / PyMySQL**;
+- modelagem e validação do destino MySQL;
+- resolução de incompatibilidades de schema e tipos.
 
-One representative issue involved contract identifiers containing hyphens and slashes. These identifiers had to be modeled as **text rather than numeric values** to preserve the original business key.
+Um problema representativo envolveu identificadores de contratos contendo hífens e barras. Esses identificadores precisaram ser modelados como **texto, e não como valores numéricos**, para preservar a chave de negócio original.
 
-Another transformation converted repeating release fields into a normalized release structure instead of keeping a wide spreadsheet-style model.
+Outra transformação converteu campos repetidos de liberação em uma estrutura normalizada, em vez de manter um modelo amplo no formato típico de planilhas.
 
-See [ETL & Data Engineering](etl/README.md).
+Consulte [ETL e Engenharia de Dados](etl/README.md).
 
-## Qlik analytical model
+## Modelo analítico Qlik
 
-The analytical application consolidates subject areas including:
+A aplicação analítica consolida áreas como:
 
-- contracts;
-- proposals;
-- customers;
-- commercial links / portfolio relationships;
-- targets and regional structures;
-- opportunity scoring;
-- manager performance;
-- financial metrics;
-- reconciliation and delinquency monitoring.
+- contratos;
+- propostas;
+- clientes;
+- vínculos comerciais / relacionamentos de carteira;
+- metas e estruturas regionais;
+- pontuação de oportunidades;
+- desempenho de gestores;
+- métricas financeiras;
+- monitoramento de conciliação e inadimplência.
 
-The Qlik layer uses prepared analytical datasets and QVD-based structures to support an associative model across operational, commercial, financial, and management perspectives.
+A camada Qlik utiliza conjuntos de dados analíticos preparados e estruturas baseadas em QVD para sustentar um modelo associativo entre as perspectivas operacional, comercial, financeira e gerencial.
 
-See [Data Model](data-model/README.md).
+Consulte [Modelo de Dados](data-model/README.md).
 
-## Analytical application
+## Aplicação analítica
 
-The application is organized into six business views:
+A aplicação está organizada em seis visões de negócio:
 
-1. **Executive Overview** — production, contracts, customers, revenue, commission, recurrence, evolution, operation mix, target performance, and target gaps.
-2. **Commercial Funnel** — proposal volume, decision and approval rates, non-converted value, in-progress proposals, SLA monitoring, and regional/manager analysis.
-3. **Portfolio & Opportunities** — qualified opportunities, estimated financial potential, priority classification, maturity, recurrence, and opportunity radar.
-4. **Financial Results** — production, estimated revenue, commission, spread, CET, operation mix, partner weight, and financial evolution.
-5. **Commercial Performance** — realized results, funnel efficiency, opportunity potential, and manager-level prioritization.
-6. **Reconciliation & Delinquency** — expected, discounted, and transferred values, exposure, failures, aging, reconciliation causes, and action queues.
+1. **Visão Executiva** — produção, contratos, clientes, receita, comissão, recorrência, evolução, composição das operações, desempenho em relação às metas e diferenças para as metas.
+2. **Funil Comercial** — volume de propostas, taxas de decisão e aprovação, valores não convertidos, propostas em andamento, monitoramento de SLA e análises regionais e por gestor.
+3. **Carteira e Oportunidades** — oportunidades qualificadas, potencial financeiro estimado, classificação de prioridade, maturidade, recorrência e radar de oportunidades.
+4. **Resultados Financeiros** — produção, receita estimada, comissão, spread, CET, composição das operações, participação de parceiros e evolução financeira.
+5. **Desempenho Comercial** — resultados realizados, eficiência do funil, potencial de oportunidades e priorização por gestor.
+6. **Conciliação e Inadimplência** — valores esperados, descontados e transferidos, exposição, falhas, envelhecimento, causas de conciliação e filas de ação.
 
-See [Dashboard & Business Views](dashboards/README.md).
+Consulte [Dashboards e Visões de Negócio](dashboards/README.md).
 
-## Dashboard gallery
+## Galeria de dashboards
 
-### 1. Executive Overview
+### 1. Visão Executiva
 
-![Executive Overview](screenshots/consignado_portfolio_screenshots_sanitized/01-executive-overview.png)
+![Visão Executiva](screenshots/consignado_portfolio_screenshots_sanitized/01-executive-overview.png)
 
-![Executive Regional Performance](screenshots/consignado_portfolio_screenshots_sanitized/09-executive-regional-performance.png)
+![Desempenho Regional Executivo](screenshots/consignado_portfolio_screenshots_sanitized/09-executive-regional-performance.png)
 
-### 2. Commercial Funnel
+### 2. Funil Comercial
 
-![Commercial Funnel](screenshots/consignado_portfolio_screenshots_sanitized/02-commercial-funnel.png)
+![Funil Comercial](screenshots/consignado_portfolio_screenshots_sanitized/02-commercial-funnel.png)
 
-![Funnel Manager Priorities](screenshots/consignado_portfolio_screenshots_sanitized/10-funnel-manager-priorities.png)
+![Prioridades dos Gestores no Funil](screenshots/consignado_portfolio_screenshots_sanitized/10-funnel-manager-priorities.png)
 
-### 3. Portfolio & Opportunities
+### 3. Carteira e Oportunidades
 
-![Portfolio and Opportunities](screenshots/consignado_portfolio_screenshots_sanitized/03-portfolio-opportunities.png)
+![Carteira e Oportunidades](screenshots/consignado_portfolio_screenshots_sanitized/03-portfolio-opportunities.png)
 
-![Opportunity Radar](screenshots/consignado_portfolio_screenshots_sanitized/04-opportunity-radar.png)
+![Radar de Oportunidades](screenshots/consignado_portfolio_screenshots_sanitized/04-opportunity-radar.png)
 
-### 4. Financial Results
+### 4. Resultados Financeiros
 
-![Financial Results](screenshots/consignado_portfolio_screenshots_sanitized/05-financial-results.png)
+![Resultados Financeiros](screenshots/consignado_portfolio_screenshots_sanitized/05-financial-results.png)
 
-![Financial Detail by Operation](screenshots/consignado_portfolio_screenshots_sanitized/11-financial-detail-by-operation.png)
+![Detalhamento Financeiro por Operação](screenshots/consignado_portfolio_screenshots_sanitized/11-financial-detail-by-operation.png)
 
-### 5. Commercial Performance
+### 5. Desempenho Comercial
 
-![Commercial Performance](screenshots/consignado_portfolio_screenshots_sanitized/06-commercial-performance.png)
+![Desempenho Comercial](screenshots/consignado_portfolio_screenshots_sanitized/06-commercial-performance.png)
 
-![Commercial Performance Radar](screenshots/consignado_portfolio_screenshots_sanitized/12-commercial-performance-radar.png)
+![Radar de Desempenho Comercial](screenshots/consignado_portfolio_screenshots_sanitized/12-commercial-performance-radar.png)
 
-### 6. Reconciliation & Delinquency
+### 6. Conciliação e Inadimplência
 
-![Reconciliation Overview](screenshots/consignado_portfolio_screenshots_sanitized/07-reconciliation-overview.png)
+![Visão Geral da Conciliação](screenshots/consignado_portfolio_screenshots_sanitized/07-reconciliation-overview.png)
 
-![Reconciliation Monitoring](screenshots/consignado_portfolio_screenshots_sanitized/08-reconciliation-monitoring.png)
+![Monitoramento da Conciliação](screenshots/consignado_portfolio_screenshots_sanitized/08-reconciliation-monitoring.png)
 
-> Screenshots are sanitized for public presentation and use simulated analytical values.
+> As capturas de tela foram tratadas para apresentação pública e utilizam valores analíticos simulados.
 
-## Opportunity scoring
+## Pontuação de oportunidades
 
-The analytical model includes an opportunity-prioritization layer using signals such as:
+O modelo analítico inclui uma camada de priorização de oportunidades que utiliza sinais como:
 
 ```text
-Contract Maturity
+Vencimento do Contrato
       +
-Recurrence
+Recorrência
       +
-Time Since Last Contract
+Tempo desde o Último Contrato
       +
-Portfolio Relationship
+Relacionamento com a Carteira
       ↓
-Opportunity Scoring
+Pontuação da Oportunidade
       ↓
-Priority Classification
+Classificação de Prioridade
       ↓
-Estimated Financial Potential
+Potencial Financeiro Estimado
 ```
 
-The public portfolio documents the analytical concept without exposing proprietary scoring weights.
+O portfólio público documenta o conceito analítico sem expor os pesos proprietários utilizados na pontuação.
 
-See [Business Rules & Opportunity Scoring](business-rules/README.md).
+Consulte [Regras de Negócio e Pontuação de Oportunidades](business-rules/README.md).
 
-## Technologies
+## Tecnologias
 
-| Layer | Technologies |
+| Camada | Tecnologias |
 |---|---|
-| Data ingestion | Excel / structured operational files |
+| Ingestão de dados | Excel / arquivos operacionais estruturados |
 | ETL | Python, Pandas |
-| Database integration | SQLAlchemy, PyMySQL |
-| Relational database | MySQL |
-| Analytical preparation | QVD, Qlik Script |
+| Integração com banco de dados | SQLAlchemy, PyMySQL |
+| Banco de dados relacional | MySQL |
+| Preparação analítica | QVD, Qlik Script |
 | Analytics | Qlik Sense / Qlik Cloud |
-| Modeling | Associative Data Model |
-| Business analytics | KPIs, calculated measures, opportunity scoring |
+| Modelagem | Modelo de Dados Associativo |
+| Analytics de negócio | KPIs, medidas calculadas, pontuação de oportunidades |
 
-## Key technical challenges
+## Principais desafios técnicos
 
-- Incorrect source data types
-- Empty strings mixed with numeric values
-- Nullable integer handling
-- Preservation of business identifiers
-- Normalization of repeated spreadsheet columns
-- Relational loading errors
-- Data validation across engineering and analytical components
-- Integration of operational, commercial, financial, and reconciliation perspectives
-- Converting portfolio behavior into actionable opportunity signals
+- Tipos de dados incorretos na origem
+- Textos vazios misturados com valores numéricos
+- Tratamento de inteiros que aceitam valores nulos
+- Preservação de identificadores de negócio
+- Normalização de colunas repetidas em planilhas
+- Erros de carga em banco de dados relacional
+- Validação de dados entre componentes de engenharia e analytics
+- Integração das perspectivas operacional, comercial, financeira e de conciliação
+- Transformação do comportamento da carteira em sinais acionáveis de oportunidade
 
-## Privacy & portfolio safety
+## Privacidade e segurança do portfólio
 
-The original project contains sensitive credit and customer information. Public screenshots were curated and sanitized before publication, and the analytical values shown in this portfolio version are simulated.
+O projeto original contém informações sensíveis de crédito e clientes. As capturas de tela públicas foram selecionadas e tratadas antes da publicação, e os valores analíticos apresentados nesta versão do portfólio são simulados.
 
-The repository does **not** publish CPF/personal identifiers, customer names, production credentials, internal infrastructure details, confidential datasets, or proprietary scoring weights.
+O repositório **não publica CPF ou identificadores pessoais, nomes de clientes, credenciais de produção, detalhes internos de infraestrutura, conjuntos de dados confidenciais ou pesos proprietários de pontuação**.
 
-See [Privacy & Anonymization](privacy/README.md).
+Consulte [Privacidade e Anonimização](privacy/README.md).
 
-## Repository structure
+## Estrutura do repositório
 
 ```text
 .
@@ -233,17 +233,17 @@ See [Privacy & Anonymization](privacy/README.md).
     └── consignado_portfolio_screenshots_sanitized/
 ```
 
-## Documentation
+## Documentação
 
-- [Verified Project Scope](PROJECT_SCOPE.md)
-- [Architecture](architecture/README.md)
-- [ETL & Data Engineering](etl/README.md)
-- [Data Model](data-model/README.md)
-- [Business Rules & Opportunity Scoring](business-rules/README.md)
-- [Dashboard & Business Views](dashboards/README.md)
-- [Privacy & Anonymization](privacy/README.md)
-- [Screenshot Evidence](screenshots/README.md)
+- [Escopo Validado do Projeto](PROJECT_SCOPE.md)
+- [Arquitetura](architecture/README.md)
+- [ETL e Engenharia de Dados](etl/README.md)
+- [Modelo de Dados](data-model/README.md)
+- [Regras de Negócio e Pontuação de Oportunidades](business-rules/README.md)
+- [Dashboards e Visões de Negócio](dashboards/README.md)
+- [Privacidade e Anonimização](privacy/README.md)
+- [Evidências em Capturas de Tela](screenshots/README.md)
 
 ---
 
-**Portfolio project by Luiz Felipe Nunes — BI Developer | Qlik | SQL | Python | Data Analytics**
+**Projeto de portfólio de Luiz Felipe Nunes — Desenvolvedor de BI | Qlik | SQL | Python | Análise de Dados**
