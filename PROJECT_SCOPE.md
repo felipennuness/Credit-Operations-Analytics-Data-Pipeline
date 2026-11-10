@@ -1,84 +1,84 @@
-# Verified Project Scope
+# Escopo Validado do Projeto
 
-This file is the source of truth for the public documentation of this portfolio case.
+Este arquivo é a fonte de referência para a documentação pública deste estudo de caso de portfólio.
 
-## Confirmed data engineering scope
+## Escopo confirmado de engenharia de dados
 
-- Source data originated from structured operational files / spreadsheets.
-- Python and Pandas were used for ETL and data preparation.
-- SQLAlchemy and PyMySQL were used for relational database loading.
-- MySQL was used as the relational database.
-- Data quality work included null handling, numeric conversion, date preparation, business-key preservation, and normalization.
-- Contract identifiers must be treated as text because the real business key format contains non-numeric characters.
-- Repeating release/value columns were transformed into a normalized relational structure.
+- Os dados de origem vieram de arquivos operacionais estruturados / planilhas.
+- Python e Pandas foram utilizados no ETL e na preparação dos dados.
+- SQLAlchemy e PyMySQL foram utilizados na carga para o banco de dados relacional.
+- MySQL foi utilizado como banco de dados relacional.
+- O trabalho de qualidade de dados incluiu tratamento de valores nulos, conversão numérica, preparação de datas, preservação de chaves de negócio e normalização.
+- Identificadores de contratos devem ser tratados como texto, pois o formato real da chave de negócio contém caracteres não numéricos.
+- Colunas repetidas de liberação / valor foram transformadas em uma estrutura relacional normalizada.
 
-## Confirmed Qlik analytical scope
+## Escopo analítico Qlik confirmado
 
-The Qlik application includes six major analytical views:
+A aplicação Qlik inclui seis grandes visões analíticas:
 
-1. Executive Overview
-2. Commercial Funnel
-3. Portfolio & Opportunities
-4. Financial Results
-5. Commercial Performance
-6. Reconciliation & Delinquency
+1. Visão Executiva
+2. Funil Comercial
+3. Carteira e Oportunidades
+4. Resultados Financeiros
+5. Desempenho Comercial
+6. Conciliação e Inadimplência
 
-## Confirmed analytical domains
+## Domínios analíticos confirmados
 
-- Contracts
-- Proposals
-- Customers / portfolio relationships
-- Commercial targets
-- Regional structures
-- Opportunity scoring / prioritization
-- Manager performance
-- Financial analysis
-- Reconciliation / delinquency
+- Contratos
+- Propostas
+- Clientes / relacionamentos de carteira
+- Metas comerciais
+- Estruturas regionais
+- Pontuação / priorização de oportunidades
+- Desempenho de gestores
+- Análise financeira
+- Conciliação / inadimplência
 
-## Confirmed opportunity logic
+## Lógica de oportunidades confirmada
 
-The application includes analytical fields and rules related to:
+A aplicação inclui campos e regras analíticas relacionados a:
 
-- contract maturity
-- recurrence
-- time since last contract
-- opportunity score
-- priority
-- estimated financial potential
-- high-priority opportunities
+- maturidade do contrato
+- recorrência
+- tempo desde o último contrato
+- pontuação da oportunidade
+- prioridade
+- potencial financeiro estimado
+- oportunidades de alta prioridade
 
-Exact proprietary scoring weights must not be published.
+Os pesos exatos e proprietários da pontuação não devem ser publicados.
 
-## Confirmed Qlik preparation structures
+## Estruturas de preparação Qlik confirmadas
 
-The application uses prepared QVD datasets covering subjects such as:
+A aplicação utiliza conjuntos de dados QVD preparados, cobrindo assuntos como:
 
-- contract facts
-- proposal facts
-- customer dimension
-- relationship / portfolio linkage
-- targets
-- manager targets
-- regional structures
-- opportunities
-- manager performance
-- monthly performance
-- opportunity performance
-- target performance
-- reconciliation data
+- fatos de contratos
+- fatos de propostas
+- dimensão de clientes
+- vínculo / relacionamento de carteira
+- metas
+- metas de gestores
+- estruturas regionais
+- oportunidades
+- desempenho de gestores
+- desempenho mensal
+- desempenho de oportunidades
+- desempenho de metas
+- dados de conciliação
 
-## Public documentation restrictions
+## Restrições da documentação pública
 
-Do not publish:
+Não publicar:
 
 - CPF
-- customer names
-- real customer-linked contract identifiers
-- confidential datasets
-- production credentials
-- internal infrastructure identifiers
-- proprietary scoring weights
+- nomes de clientes
+- identificadores reais de contratos associados a clientes
+- conjuntos de dados confidenciais
+- credenciais de produção
+- identificadores internos de infraestrutura
+- pesos proprietários de pontuação
 
-## Documentation rule
+## Regra de documentação
 
-Only implementation details that are verified from the real ETL, Qlik application, QVF structure, or user-provided evidence should be presented as completed work.
+Somente detalhes de implementação verificados no ETL real, na aplicação Qlik, na estrutura QVF ou em evidências fornecidas pelo usuário devem ser apresentados como trabalho concluído.
