@@ -1,75 +1,75 @@
-# ETL & Data Engineering
+# ETL e Engenharia de Dados
 
-## Purpose
+## Objetivo
 
-The ETL layer prepares operational credit data for relational storage and analytical consumption.
+A camada de ETL prepara os dados operacionais de crédito para armazenamento relacional e consumo analítico.
 
-The original source contained a large number of columns with mixed data types, repeated structures, nullable numeric fields, date fields, financial values, rates, commissions, and business identifiers.
+A origem original continha muitas colunas com tipos de dados mistos, estruturas repetidas, campos numéricos que aceitavam valores nulos, datas, valores financeiros, taxas, comissões e identificadores de negócio.
 
-## Technology stack
+## Tecnologias utilizadas
 
 - Python
 - Pandas
 - SQLAlchemy
 - PyMySQL
 - MySQL
-- Excel / spreadsheet sources
+- Excel / planilhas
 
-## Main ETL stages
+## Principais etapas do ETL
 
 ```text
-Read source file
+Ler arquivo de origem
       ↓
-Validate expected columns
+Validar colunas esperadas
       ↓
-Clean empty strings / nulls
+Limpar textos vazios / valores nulos
       ↓
-Convert dates and numeric fields
+Converter datas e campos numéricos
       ↓
-Correct business key types
+Corrigir tipos das chaves de negócio
       ↓
-Apply business transformations
+Aplicar transformações de negócio
       ↓
-Normalize repeating structures
+Normalizar estruturas repetidas
       ↓
-Validate transformed datasets
+Validar conjuntos de dados transformados
       ↓
-Load into MySQL
+Carregar no MySQL
       ↓
-Post-load validation
+Validar após a carga
 ```
 
-## Business key preservation
+## Preservação de chaves de negócio
 
-One important data quality issue involved the contract identifier.
+Um problema importante de qualidade de dados envolveu o identificador do contrato.
 
-Examples of the original format included values similar to:
+Exemplos do formato original incluíam valores semelhantes a:
 
 ```text
 20-77774/16006
 21-00037/16003
 ```
 
-Because the identifier contains hyphens and slashes, it must be modeled as a **text field**, not as a numeric `BIGINT`.
+Como o identificador contém hífens e barras, ele deve ser modelado como um **campo de texto**, e não como um `BIGINT` numérico.
 
-Treating the contract as text preserves the original business key and prevents invalid conversions or missing identifiers.
+Tratar o contrato como texto preserva a chave de negócio original e evita conversões inválidas ou perda de identificadores.
 
-## Nullable integer treatment
+## Tratamento de inteiros que aceitam valores nulos
 
-Some operational fields contained a mixture of numbers and empty strings.
+Alguns campos operacionais continham uma mistura de números e textos vazios.
 
-For fields such as the number of settled installments, the transformation process:
+Para campos como a quantidade de parcelas liquidadas, o processo de transformação:
 
-1. replaced empty values with nulls;
-2. converted valid values to numeric;
-3. used a nullable integer representation;
-4. converted missing values into database-compatible null values before loading.
+1. substituiu valores vazios por nulos;
+2. converteu os valores válidos para numérico;
+3. utilizou uma representação de inteiro que aceita valores nulos;
+4. converteu valores ausentes para nulos compatíveis com o banco antes da carga.
 
-This avoided invalid inserts while preserving the semantic difference between zero and missing information.
+Isso evitou inserções inválidas e preservou a diferença semântica entre zero e informação ausente.
 
-## Release normalization
+## Normalização das liberações
 
-The spreadsheet contained repeating release columns such as:
+A planilha continha colunas repetidas de liberação, como:
 
 ```text
 liberacao_1 / valor_1
@@ -78,7 +78,7 @@ liberacao_3 / valor_3
 ...
 ```
 
-Instead of keeping this wide structure, the ETL transforms the releases into a relational fact structure with fields equivalent to:
+Em vez de manter essa estrutura ampla, o ETL transforma as liberações em uma estrutura relacional de fatos com campos equivalentes a:
 
 ```text
 contract
@@ -87,10 +87,10 @@ release_type
 release_value
 ```
 
-Conceptually:
+Conceitualmente:
 
 ```text
-Wide Spreadsheet
+Planilha em formato amplo
 
 contract | release_1 | value_1 | release_2 | value_2
 ----------------------------------------------------
@@ -98,7 +98,7 @@ A        | Type X    | 1000    | Type Y    | 500
 
                 ↓
 
-Normalized Release Fact
+Fato de Liberações Normalizado
 
 contract | release_number | release_type | release_value
 ---------------------------------------------------------
@@ -106,42 +106,42 @@ A        | 1              | Type X       | 1000
 A        | 2              | Type Y       | 500
 ```
 
-This improves scalability, querying, and analytical modeling.
+Isso melhora a escalabilidade, as consultas e a modelagem analítica.
 
-## Numeric validation
+## Validação numérica
 
-Financial release values required explicit numeric conversion because source files could contain blank strings mixed with valid numbers.
+Os valores financeiros das liberações exigiram conversão numérica explícita, pois os arquivos de origem podiam conter textos vazios misturados a números válidos.
 
-The ETL removes invalid blanks and converts valid release amounts to numeric values before database insertion.
+O ETL remove valores vazios inválidos e converte os valores válidos antes da inserção no banco.
 
-## Null handling
+## Tratamento de nulos
 
-A reusable null-conversion step prepares Pandas dataframes for relational insertion by replacing `NaN` / `NaT` values with Python `None` where appropriate.
+Uma etapa reutilizável de conversão de nulos prepara os DataFrames do Pandas para inserção relacional, substituindo valores `NaN` / `NaT` por `None` do Python quando apropriado.
 
-This prevents spreadsheet-specific null representations from being incorrectly written to the database.
+Isso evita que representações de valores ausentes específicas de planilhas sejam gravadas incorretamente no banco.
 
-## Database loading
+## Carga no banco de dados
 
-The relational load uses SQLAlchemy with PyMySQL and chunked inserts.
+A carga relacional utiliza SQLAlchemy com PyMySQL e inserções em lotes.
 
-Chunking allows the process to load large datasets in manageable batches while making troubleshooting easier when a specific transformation or database constraint fails.
+O processamento em lotes permite carregar grandes conjuntos de dados em partes gerenciáveis e facilita a investigação quando uma transformação específica ou restrição do banco apresenta falha.
 
-## Validation & troubleshooting
+## Validação e resolução de problemas
 
-The implementation included explicit diagnostic checks for:
+A implementação incluiu verificações diagnósticas explícitas para:
 
-- missing contract identifiers
-- unexpected dtypes
-- empty strings inside numeric columns
-- invalid date conversion
-- relational schema mismatch
-- database insertion failures
-- transformed row counts
+- identificadores de contrato ausentes
+- tipos de dados inesperados
+- textos vazios em colunas numéricas
+- conversões de data inválidas
+- incompatibilidade de schema relacional
+- falhas de inserção no banco
+- contagem de linhas após transformação
 
-The ETL was iteratively adjusted until key validation checks returned clean results before the final relational load.
+O ETL foi ajustado iterativamente até que as principais verificações retornassem resultados consistentes antes da carga relacional final.
 
-## Public portfolio scope
+## Escopo público do portfólio
 
-The actual production dataset is not published.
+O conjunto de dados real de produção não é publicado.
 
-Any future example code or sample data in this repository will use synthetic or anonymized values while preserving the same transformation patterns.
+Qualquer código de exemplo ou conjunto de dados de demonstração adicionado futuramente a este repositório utilizará valores sintéticos ou anonimizados, preservando os mesmos padrões de transformação.
