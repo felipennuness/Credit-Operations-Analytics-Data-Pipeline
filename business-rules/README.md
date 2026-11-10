@@ -1,142 +1,142 @@
-# Business Rules & Opportunity Scoring
+# Regras de Negócio e Pontuação de Oportunidades
 
-## Purpose
+## Objetivo
 
-The analytical application goes beyond descriptive reporting by applying business rules that transform operational portfolio behavior into commercial prioritization signals.
+A aplicação analítica vai além de relatórios descritivos ao aplicar regras de negócio que transformam o comportamento operacional da carteira em sinais de priorização comercial.
 
-The public portfolio documents the logic conceptually without exposing proprietary weights, thresholds, or confidential commercial policies.
+O portfólio público documenta a lógica conceitualmente, sem expor pesos, limites ou políticas comerciais confidenciais.
 
-## Opportunity scoring concept
+## Conceito de pontuação de oportunidades
 
-The opportunity layer combines multiple portfolio signals to create a prioritization score.
+A camada de oportunidades combina diversos sinais da carteira para gerar uma pontuação de priorização.
 
-Conceptually:
+Conceitualmente:
 
 ```text
-Contract Maturity
+Maturidade do Contrato
       +
-Recurrence Signal
+Sinal de Recorrência
       +
-Time Since Last Contract
+Tempo desde o Último Contrato
       +
-Portfolio Relationship
+Relacionamento com a Carteira
       ↓
-Opportunity Score
+Pontuação da Oportunidade
       ↓
-Priority Classification
+Classificação de Prioridade
       ↓
-Estimated Financial Potential
+Potencial Financeiro Estimado
 ```
 
-## Main opportunity signals
+## Principais sinais de oportunidade
 
-### Contract maturity
+### Maturidade do contrato
 
-Maturity measures how far an existing relationship or contract has progressed and helps identify accounts that may be eligible for a new commercial approach.
+A maturidade mede o estágio de evolução de um relacionamento ou contrato existente e ajuda a identificar contas que podem estar aptas a uma nova abordagem comercial.
 
-The application groups the portfolio into maturity bands and compares the estimated potential associated with each band.
+A aplicação agrupa a carteira em faixas de maturidade e compara o potencial estimado associado a cada faixa.
 
-### Recurrence
+### Recorrência
 
-Historical recurrence is used as another signal of commercial propensity.
+A recorrência histórica é utilizada como outro sinal de propensão comercial.
 
-Customers or relationships with repeated historical operations can be analyzed separately from one-time relationships.
+Clientes ou relacionamentos com operações históricas repetidas podem ser analisados separadamente daqueles que tiveram apenas uma operação.
 
-### Time since last contract
+### Tempo desde o último contrato
 
-The time elapsed since the most recent operation is used to identify relationships that have remained inactive for a relevant period.
+O tempo decorrido desde a operação mais recente é utilizado para identificar relacionamentos que permaneceram inativos por um período relevante.
 
-This signal is combined with maturity and recurrence rather than being treated as an isolated rule.
+Esse sinal é combinado com maturidade e recorrência, em vez de ser tratado como uma regra isolada.
 
-### Priority classification
+### Classificação de prioridade
 
-The combined score is converted into an actionable priority classification.
+A pontuação combinada é convertida em uma classificação de prioridade acionável.
 
-The analytical application highlights high-priority opportunities and their estimated financial potential so commercial teams can focus attention where the expected return is greater.
+A aplicação analítica destaca oportunidades de alta prioridade e seu potencial financeiro estimado para que as equipes comerciais concentrem esforços onde o retorno esperado é maior.
 
-## Estimated financial potential
+## Potencial financeiro estimado
 
-Potential is used to translate an opportunity signal into an estimated business value.
+O potencial traduz um sinal de oportunidade em um valor de negócio estimado.
 
-The application analyzes:
+A aplicação analisa:
 
-- total estimated potential
-- high-priority potential
-- potential by region
-- potential by manager
-- potential by maturity level
-- portfolio percentage with identified potential
-- average potential ticket
+- potencial estimado total
+- potencial de alta prioridade
+- potencial por região
+- potencial por gestor
+- potencial por nível de maturidade
+- percentual da carteira com potencial identificado
+- ticket médio potencial
 
-## Capture simulation
+## Simulação de captação
 
-The Portfolio & Opportunities view includes a simple scenario mechanism that allows users to evaluate how much potential could be captured under different assumed conversion rates.
+A visão Carteira e Oportunidades inclui um mecanismo simples de cenários que permite avaliar quanto potencial poderia ser capturado sob diferentes taxas de conversão assumidas.
 
-This turns a static opportunity estimate into a business-planning tool.
+Isso transforma uma estimativa estática de oportunidades em uma ferramenta de planejamento de negócio.
 
-## Commercial funnel rules
+## Regras do funil comercial
 
-The funnel view classifies proposals by operational status and evaluates processing performance.
+A visão de funil classifica propostas por status operacional e avalia o desempenho do processamento.
 
-Key rules include:
+As principais regras incluem:
 
-- received proposals
-- approved proposals
-- rejected proposals
-- withdrawals / desistências
-- proposals in progress
-- value not converted
-- time in progress
-- proposals above the defined SLA threshold
+- propostas recebidas
+- propostas aprovadas
+- propostas rejeitadas
+- desistências
+- propostas em andamento
+- valor não convertido
+- tempo em andamento
+- propostas acima do limite definido de SLA
 
-The application separates quantity-based funnel metrics from value-based funnel exposure.
+A aplicação separa métricas de funil baseadas em quantidade da exposição financeira baseada em valor.
 
-## Target performance
+## Desempenho em relação às metas
 
-Production is compared against commercial targets at organizational levels such as region, unit, and manager.
+A produção é comparada com metas comerciais em níveis organizacionais, como região, unidade e gestor.
 
-The model calculates target attainment and target gap so management can identify both over-performance and the units requiring intervention.
+O modelo calcula o atingimento e a diferença em relação à meta para que a gestão identifique tanto resultados acima do esperado quanto unidades que precisam de intervenção.
 
-## Financial rules
+## Regras financeiras
 
-Financial analysis combines operational volume with economic measures including:
+A análise financeira combina volume operacional com medidas econômicas, incluindo:
 
-- estimated revenue
-- commission
-- commission weight over production
+- receita estimada
+- comissão
+- participação da comissão sobre a produção
 - spread
 - CET
-- average ticket
-- operation mix
+- ticket médio
+- composição das operações
 
-These metrics help distinguish high-volume operations from operations with different return or commercial cost profiles.
+Essas métricas ajudam a diferenciar operações de alto volume de operações com perfis distintos de retorno ou custo comercial.
 
-## Reconciliation rules
+## Regras de conciliação
 
-The reconciliation flow compares three main stages:
+O fluxo de conciliação compara três etapas principais:
 
 ```text
-Expected Value
+Valor Esperado
       ↓
-Discounted Value
+Valor Descontado
       ↓
-Transferred Value
+Valor Transferido
 ```
 
-Differences between the stages are classified into operational exception categories such as discount failure or transfer failure.
+As diferenças entre as etapas são classificadas em categorias de exceção operacional, como falha de desconto ou falha de transferência.
 
-The remaining difference is used to measure financial exposure and support a priority action queue.
+A diferença remanescente é utilizada para medir a exposição financeira e apoiar uma fila de ações prioritárias.
 
-## Action-oriented design
+## Orientação para ação
 
-A recurring principle throughout the application is to move from summary indicators to a practical action list.
+Um princípio recorrente em toda a aplicação é avançar dos indicadores resumidos para uma lista prática de ações.
 
-Examples include:
+Exemplos:
 
-- units with the largest target gap
-- managers with high value stuck in the funnel
-- high-priority commercial opportunities
-- manager performance radar
-- reconciliation exception queue
+- unidades com maior diferença em relação à meta
+- gestores com alto valor retido no funil
+- oportunidades comerciais de alta prioridade
+- radar de desempenho dos gestores
+- fila de exceções de conciliação
 
-The goal is not only to describe what happened, but to indicate **where action is required next**.
+O objetivo não é apenas descrever o que aconteceu, mas indicar **onde é necessário agir em seguida**.
