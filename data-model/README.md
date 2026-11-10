@@ -1,57 +1,57 @@
-# Data Model
+# Modelo de Dados
 
-## Overview
+## Visão geral
 
-The Qlik application uses an associative analytical model built from multiple prepared datasets covering operational, commercial, financial, opportunity, performance, and reconciliation domains.
+A aplicação Qlik utiliza um modelo analítico associativo construído a partir de vários conjuntos de dados preparados, cobrindo os domínios operacional, comercial, financeiro, de oportunidades, desempenho e conciliação.
 
-The model was designed to allow users to move from executive indicators to detailed operational records without separating each business subject into isolated applications.
+O modelo foi desenvolvido para permitir que os usuários avancem de indicadores executivos até registros operacionais detalhados, sem separar cada assunto de negócio em aplicações isoladas.
 
-## Main analytical datasets
+## Principais conjuntos de dados analíticos
 
-The application contains prepared datasets equivalent to the following subject areas:
+A aplicação contém conjuntos de dados preparados equivalentes às seguintes áreas:
 
-### Core operational facts
+### Fatos operacionais centrais
 
 - `FATO_CONTRATOS`
 - `FATO_PROPOSTAS`
 
-These facts provide the foundation for production, proposal funnel, financial, and operational analysis.
+Esses fatos fornecem a base para análises de produção, funil de propostas, finanças e operações.
 
-### Customer & relationship structures
+### Estruturas de clientes e relacionamentos
 
 - `DIM_CLIENTE`
 - `INT_VINCULO`
 
-These structures connect customers and portfolio relationships to historical operations and opportunity logic.
+Essas estruturas conectam clientes e relacionamentos da carteira às operações históricas e à lógica de oportunidades.
 
-### Targets & organizational structure
+### Metas e estrutura organizacional
 
 - `METAS`
 - `METAS_GERENTES`
 - `REGIONAIS`
 
-These datasets support comparisons between realized production and commercial objectives by region, unit, and manager.
+Esses conjuntos de dados permitem comparar a produção realizada com os objetivos comerciais por região, unidade e gestor.
 
-### Opportunity layer
+### Camada de oportunidades
 
 - `INT_OPORTUNIDADE`
 
-This layer consolidates the business signals used to identify and prioritize commercial opportunities.
+Essa camada consolida os sinais de negócio utilizados para identificar e priorizar oportunidades comerciais.
 
-### Performance layer
+### Camada de desempenho
 
 - `DIM_GERENTE_PERFORMANCE`
 - `FATO_PERFORMANCE_MENSAL`
 - `FATO_PERFORMANCE_OPORTUNIDADE`
 - `FATO_PERFORMANCE_META`
 
-These datasets support manager-level analysis combining realized results, funnel efficiency, targets, and opportunity potential.
+Esses conjuntos de dados apoiam análises no nível de gestor, combinando resultados realizados, eficiência do funil, metas e potencial de oportunidades.
 
-### Reconciliation layer
+### Camada de conciliação
 
-A dedicated reconciliation dataset supports the comparison between expected, discounted, and transferred financial values together with exception and delinquency analysis.
+Um conjunto de dados dedicado à conciliação permite comparar valores financeiros esperados, descontados e transferidos, além de analisar exceções e inadimplência.
 
-## Conceptual model
+## Modelo conceitual
 
 ```text
                  DIM_CLIENTE
@@ -67,121 +67,121 @@ A dedicated reconciliation dataset supports the comparison between expected, dis
              +-------------+---------------+
                            |
                            v
-                Performance Structures
+                Estruturas de Desempenho
                            |
                    +-------+-------+
                    |               |
                    v               v
                 METAS          REGIONAIS
 
-Reconciliation data is integrated as a complementary operational/financial analytical domain.
+Os dados de conciliação são integrados como um domínio analítico operacional/financeiro complementar.
 ```
 
-## Analytical domains
+## Domínios analíticos
 
-### Contracts
+### Contratos
 
-The contract fact includes fields related to:
+A tabela fato de contratos inclui campos relacionados a:
 
-- production values
-- customer income
-- installments
-- financial rates
+- valores de produção
+- renda do cliente
+- parcelas
+- taxas financeiras
 - spread
 - CET
-- operation value
-- gross and net values
-- insurance
+- valor da operação
+- valores bruto e líquido
+- seguro
 - IOF
-- commission
-- employer
-- agreement / convenio
-- commercial partner
-- manager and region
+- comissão
+- empregador
+- convênio
+- parceiro comercial
+- gestor e região
 
-### Proposals
+### Propostas
 
-The proposal fact supports funnel and SLA analysis through fields related to:
+A tabela fato de propostas apoia análises de funil e SLA por meio de campos relacionados a:
 
-- proposal status
-- proposal timestamps
-- processing time
+- status da proposta
+- datas e horários da proposta
+- tempo de processamento
 - SLA
-- operation type
-- proposal value
-- revenue
-- commission
-- manager / region
+- tipo de operação
+- valor da proposta
+- receita
+- comissão
+- gestor / região
 
-### Opportunities
+### Oportunidades
 
-The opportunity structure includes analytical fields such as:
+A estrutura de oportunidades inclui campos analíticos como:
 
-- maturity
-- recurrence flag
-- maturity points
-- recurrence points
-- time-based points
-- opportunity score
-- priority
-- estimated financial potential
-- high-priority flag
+- maturidade
+- indicador de recorrência
+- pontos de maturidade
+- pontos de recorrência
+- pontos relacionados ao tempo
+- pontuação da oportunidade
+- prioridade
+- potencial financeiro estimado
+- indicador de alta prioridade
 
-### Performance
+### Desempenho
 
-The performance layer combines metrics such as:
+A camada de desempenho combina métricas como:
 
-- contracts produced
-- net production
-- revenue
-- commission
-- average ticket
-- proposals received
-- approved / rejected proposals
-- proposals in progress
-- value not converted
-- qualified opportunities
-- high-priority opportunities
-- estimated potential
-- manager targets
+- contratos produzidos
+- produção líquida
+- receita
+- comissão
+- ticket médio
+- propostas recebidas
+- propostas aprovadas / rejeitadas
+- propostas em andamento
+- valor não convertido
+- oportunidades qualificadas
+- oportunidades de alta prioridade
+- potencial estimado
+- metas dos gestores
 
-### Reconciliation
+### Conciliação
 
-The reconciliation domain supports analysis of:
+O domínio de conciliação permite analisar:
 
-- expected value
-- discounted value
-- transferred value
-- reconciliation rate
-- discount failure
-- transfer failure
-- financial exposure
-- exception cause
-- aging
-- overdue contracts
+- valor esperado
+- valor descontado
+- valor transferido
+- taxa de conciliação
+- falha de desconto
+- falha de transferência
+- exposição financeira
+- causa da exceção
+- envelhecimento
+- contratos em atraso
 
-## Why the associative model matters
+## Por que o modelo associativo importa
 
-The Qlik associative model allows a user to select a manager, regional structure, operation type, agreement, commercial partner, or time period and see the impact across multiple business views.
+O modelo associativo do Qlik permite que o usuário selecione um gestor, estrutura regional, tipo de operação, convênio, parceiro comercial ou período e visualize o impacto em várias visões de negócio.
 
-This makes it possible to connect:
+Isso permite conectar:
 
 ```text
-Production
+Produção
    ↕
-Proposal Funnel
+Funil de Propostas
    ↕
-Portfolio Potential
+Potencial da Carteira
    ↕
-Financial Return
+Retorno Financeiro
    ↕
-Manager Performance
+Desempenho do Gestor
    ↕
-Reconciliation Risk
+Risco de Conciliação
 ```
 
-within one analytical application.
+em uma única aplicação analítica.
 
-## Privacy-aware fields
+## Campos com proteção de privacidade
 
-The analytical model includes masked identifiers for sensitive customer information. Public examples use masked or synthetic values only.
+O modelo analítico inclui identificadores mascarados para informações sensíveis de clientes. Exemplos públicos utilizam somente valores mascarados ou sintéticos.
