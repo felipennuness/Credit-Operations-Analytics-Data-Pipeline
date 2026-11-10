@@ -1,199 +1,199 @@
-# Dashboard & Business Views
+# Dashboards e Visões de Negócio
 
-## Overview
+## Visão geral
 
-The Qlik application is organized into six analytical views that move from executive monitoring to operational action.
+A aplicação Qlik está organizada em seis visões analíticas que conduzem do acompanhamento executivo à ação operacional.
 
-The public portfolio will use sanitized screenshots so the design and analytical structure can be demonstrated without exposing personal or confidential business information.
+O portfólio público utiliza capturas de tela tratadas para demonstrar o design e a estrutura analítica sem expor informações pessoais ou comerciais confidenciais.
 
-## 1. Executive Overview
+## 1. Visão Executiva
 
-The executive page provides a consolidated view of the operation.
+A página executiva oferece uma visão consolidada da operação.
 
-### Main KPIs
+### Principais KPIs
 
-- Net Production
-- Contracts Produced
-- Customers Served
-- Estimated Revenue
-- Total Commission
-- Portfolio Recurrence
+- Produção Líquida
+- Contratos Produzidos
+- Clientes Atendidos
+- Receita Estimada
+- Comissão Total
+- Recorrência da Carteira
 
-### Main analyses
+### Principais análises
 
-- monthly production evolution
-- operation-type mix
-- target attainment by region
-- units with the largest target gaps
-- portfolio recurrence profile
-- detailed unit performance table
+- evolução mensal da produção
+- composição por tipo de operação
+- atingimento de metas por região
+- unidades com maiores diferenças em relação às metas
+- perfil de recorrência da carteira
+- tabela detalhada de desempenho das unidades
 
-### Business objective
+### Objetivo de negócio
 
-Give management a fast view of scale, financial result, customer reach, target performance, and portfolio recurrence.
-
----
-
-## 2. Commercial Funnel
-
-The commercial funnel page analyzes proposals from intake through decision.
-
-### Main KPIs
-
-- Proposals Received
-- Proposal Volume
-- Decision Rate
-- Approval Rate
-- Non-Converted Value
-- Value in Progress Above SLA
-
-### Main analyses
-
-- proposal outcome distribution
-- financial value by SLA range
-- percentage of delayed in-progress value by region
-- non-converted value by operation type
-- concentration of delayed pipeline value
-- manager action-priority table
-
-### Business objective
-
-Identify process bottlenecks and quantify the financial value trapped in the proposal pipeline.
+Oferecer à gestão uma visão rápida de escala, resultado financeiro, alcance de clientes, desempenho em relação às metas e recorrência da carteira.
 
 ---
 
-## 3. Portfolio & Opportunities
+## 2. Funil Comercial
 
-This page transforms historical portfolio behavior into an opportunity pipeline.
+A página do funil comercial analisa as propostas desde a entrada até a decisão.
 
-### Main KPIs
+### Principais KPIs
 
-- Qualified Opportunities
-- Estimated Financial Potential
-- High-Priority Opportunities
-- High-Priority Potential
-- Portfolio with Potential
-- Average Potential Ticket
+- Propostas Recebidas
+- Volume de Propostas
+- Taxa de Decisão
+- Taxa de Aprovação
+- Valor Não Convertido
+- Valor em Andamento Acima do SLA
 
-### Main analyses
+### Principais análises
 
-- commercial potential by region
-- capture-rate simulation
-- opportunity signals
-- potential by contract maturity
-- potential concentration by region / manager
-- opportunity radar with priority, potential, maturity, last contract, and recurrence context
+- distribuição dos resultados das propostas
+- valor financeiro por faixa de SLA
+- percentual do valor em andamento com atraso por região
+- valor não convertido por tipo de operação
+- concentração do valor atrasado no funil
+- tabela de prioridades de ação por gestor
 
-### Business objective
+### Objetivo de negócio
 
-Support proactive commercial action using portfolio behavior instead of waiting only for new incoming proposals.
-
----
-
-## 4. Financial Results
-
-The financial page evaluates the economics of originated operations.
-
-### Main KPIs
-
-- Net Production
-- Estimated Revenue
-- Total Commission
-- Commission / Production
-- Average Spread
-- Average CET
-
-### Main analyses
-
-- estimated revenue versus commission by operation type
-- spread versus CET by operation type
-- commission weight by region
-- commission weight by commercial partner
-- estimated revenue and commission evolution
-- detailed financial comparison by operation type
-
-### Business objective
-
-Understand not only production volume, but also revenue, commercial cost, pricing characteristics, and operation mix.
+Identificar gargalos do processo e quantificar o valor financeiro retido no pipeline de propostas.
 
 ---
 
-## 5. Commercial Performance
+## 3. Carteira e Oportunidades
 
-The performance page combines realized result, funnel efficiency, and future portfolio potential at manager level.
+Esta página transforma o comportamento histórico da carteira em um pipeline de oportunidades.
 
-### Main KPIs
+### Principais KPIs
 
-- Net Production
-- Approval Rate
-- Non-Converted Value
-- Qualified Opportunities
-- Estimated Financial Potential
-- Portfolio with Potential
+- Oportunidades Qualificadas
+- Potencial Financeiro Estimado
+- Oportunidades de Alta Prioridade
+- Potencial de Alta Prioridade
+- Carteira com Potencial
+- Ticket Médio Potencial
 
-### Main analyses
+### Principais análises
 
-- realized production versus opportunity potential by manager
-- funnel efficiency by manager
-- portfolio potential rate by manager
-- concentration of high-priority potential
-- volume efficiency
-- action-oriented performance table
+- potencial comercial por região
+- simulação de taxa de captação
+- sinais de oportunidade
+- potencial por maturidade do contrato
+- concentração de potencial por região / gestor
+- radar de oportunidades com prioridade, potencial, maturidade, último contrato e contexto de recorrência
 
-### Business objective
+### Objetivo de negócio
 
-Avoid evaluating commercial performance only through historical production. The page combines what the manager produced, how efficiently the funnel was handled, and how much potential remains in the portfolio.
+Apoiar ações comerciais proativas com base no comportamento da carteira, em vez de aguardar apenas novas propostas recebidas.
 
 ---
 
-## 6. Reconciliation & Delinquency
+## 4. Resultados Financeiros
 
-This page monitors post-origination financial reconciliation and exception exposure.
+A página financeira avalia a economia das operações originadas.
 
-### Main KPIs
+### Principais KPIs
 
-- Expected Value
-- Reconciliation Rate
-- Financial Exposure
-- Discount Failure
-- Transfer Failure
-- Contracts with Overdue Installments
+- Produção Líquida
+- Receita Estimada
+- Comissão Total
+- Comissão / Produção
+- Spread Médio
+- CET Médio
 
-### Main analyses
+### Principais análises
 
-- expected → discounted → transferred flow
-- causes of financial divergence
-- reconciliation rate evolution
-- overdue exception aging
-- reconciliation performance by payroll/reconciliation entity
-- priority action queue
+- receita estimada versus comissão por tipo de operação
+- spread versus CET por tipo de operação
+- participação da comissão por região
+- participação da comissão por parceiro comercial
+- evolução da receita estimada e da comissão
+- comparação financeira detalhada por tipo de operação
 
-### Business objective
+### Objetivo de negócio
 
-Identify where expected cash flow diverged from actual discount or transfer behavior and prioritize cases requiring operational treatment.
+Entender não apenas o volume de produção, mas também receita, custo comercial, características de precificação e composição das operações.
 
-## Navigation philosophy
+---
 
-The application is structured to support a natural management workflow:
+## 5. Desempenho Comercial
+
+A página de desempenho combina resultado realizado, eficiência do funil e potencial futuro da carteira no nível de gestor.
+
+### Principais KPIs
+
+- Produção Líquida
+- Taxa de Aprovação
+- Valor Não Convertido
+- Oportunidades Qualificadas
+- Potencial Financeiro Estimado
+- Carteira com Potencial
+
+### Principais análises
+
+- produção realizada versus potencial de oportunidades por gestor
+- eficiência do funil por gestor
+- taxa de potencial da carteira por gestor
+- concentração de potencial de alta prioridade
+- eficiência de volume
+- tabela de desempenho orientada à ação
+
+### Objetivo de negócio
+
+Evitar avaliar o desempenho comercial apenas pela produção histórica. A página combina o que o gestor produziu, a eficiência com que conduziu o funil e quanto potencial ainda existe na carteira.
+
+---
+
+## 6. Conciliação e Inadimplência
+
+Esta página monitora a conciliação financeira após a originação e a exposição a exceções.
+
+### Principais KPIs
+
+- Valor Esperado
+- Taxa de Conciliação
+- Exposição Financeira
+- Falha de Desconto
+- Falha de Transferência
+- Contratos com Parcelas em Atraso
+
+### Principais análises
+
+- fluxo esperado → descontado → transferido
+- causas de divergência financeira
+- evolução da taxa de conciliação
+- envelhecimento das exceções em atraso
+- desempenho de conciliação por entidade de folha / conciliação
+- fila de ações prioritárias
+
+### Objetivo de negócio
+
+Identificar onde o fluxo de caixa esperado divergiu do comportamento real de desconto ou transferência e priorizar os casos que exigem tratamento operacional.
+
+## Filosofia de navegação
+
+A aplicação está estruturada para apoiar um fluxo natural de gestão:
 
 ```text
-Executive Overview
+Visão Executiva
         ↓
-Commercial Funnel
+Funil Comercial
         ↓
-Portfolio Opportunities
+Oportunidades da Carteira
         ↓
-Financial Results
+Resultados Financeiros
         ↓
-Commercial Performance
+Desempenho Comercial
         ↓
-Reconciliation & Delinquency
+Conciliação e Inadimplência
 ```
 
-This allows the user to move from **what happened** to **why it happened**, **where potential exists**, and finally **where action is required**.
+Isso permite ao usuário avançar de **o que aconteceu** para **por que aconteceu**, **onde existe potencial** e, por fim, **onde é necessário agir**.
 
-## Screenshot publication plan
+## Plano de publicação das capturas de tela
 
-The repository will publish selected sanitized screenshots rather than every screen capture.
+O repositório publica capturas de tela selecionadas e tratadas, em vez de todas as imagens disponíveis.
 
-The goal is to show one strong visual example from each business view while keeping the main README concise.
+O objetivo é apresentar um exemplo visual consistente de cada visão de negócio, mantendo o README principal objetivo.
