@@ -1,106 +1,106 @@
-# Architecture
+# Arquitetura
 
-## Overview
+## Visão geral
 
-This portfolio case documents two complementary components from the credit-operations solution:
+Este estudo de caso de portfólio documenta dois componentes complementares da solução de operações de crédito:
 
-1. a **data-engineering layer** built with Python, Pandas, SQLAlchemy / PyMySQL, and MySQL;
-2. a **Qlik analytics layer** built from prepared analytical datasets, QVD structures, associative modeling, business rules, and dashboards.
+1. uma **camada de engenharia de dados**, construída com Python, Pandas, SQLAlchemy / PyMySQL e MySQL;
+2. uma **camada de analytics Qlik**, construída a partir de conjuntos de dados analíticos preparados, estruturas QVD, modelagem associativa, regras de negócio e dashboards.
 
-The public documentation intentionally keeps these components distinct. It does **not** claim a directly validated automated lineage from the MySQL staging layer into the QVD layer unless that connection is explicitly documented and verified.
+A documentação pública mantém intencionalmente esses componentes separados. Ela **não afirma existir uma linhagem automatizada diretamente validada entre a camada de preparação MySQL e a camada QVD**, a menos que essa conexão esteja explicitamente documentada e verificada.
 
-## Architecture view
+## Visão da arquitetura
 
 ```mermaid
 flowchart LR
-    subgraph DE[Data Engineering Layer]
-        A[Operational / Spreadsheet Sources] --> B[Python + Pandas ETL]
-        B --> C[Cleaning & Type Validation]
-        C --> D[Business Transformations]
-        D --> E[Relational Normalization]
+    subgraph DE[Camada de Engenharia de Dados]
+        A[Fontes Operacionais / Planilhas] --> B[ETL Python + Pandas]
+        B --> C[Limpeza e Validação de Tipos]
+        C --> D[Transformações de Negócio]
+        D --> E[Normalização Relacional]
         E --> F[SQLAlchemy + PyMySQL]
         F --> G[(MySQL)]
     end
 
-    subgraph QA[Qlik Analytics Layer]
-        H[Prepared Analytical Sources] --> I[QVD / Preparation Structures]
-        I --> J[Qlik Associative Data Model]
-        J --> K[Business Rules / Measures / Opportunity Scoring]
-        K --> L[Qlik Analytical Application]
-        L --> M[Executive Overview]
-        L --> N[Commercial Funnel]
-        L --> O[Portfolio & Opportunities]
-        L --> P[Financial Results]
-        L --> Q[Commercial Performance]
-        L --> R[Reconciliation & Delinquency]
+    subgraph QA[Camada de Analytics Qlik]
+        H[Fontes Analíticas Preparadas] --> I[QVD / Estruturas de Preparação]
+        I --> J[Modelo Associativo de Dados Qlik]
+        J --> K[Regras de Negócio / Medidas / Pontuação de Oportunidades]
+        K --> L[Aplicação Analítica Qlik]
+        L --> M[Visão Executiva]
+        L --> N[Funil Comercial]
+        L --> O[Carteira e Oportunidades]
+        L --> P[Resultados Financeiros]
+        L --> Q[Desempenho Comercial]
+        L --> R[Conciliação e Inadimplência]
     end
 ```
 
-## 1. Data engineering layer
+## 1. Camada de engenharia de dados
 
-The operational source contained credit contracts, proposals, customer information, financial values, rates, commissions, release data, organizational attributes, and other business fields.
+A origem operacional continha contratos de crédito, propostas, informações de clientes, valores financeiros, taxas, comissões, dados de liberação, atributos organizacionais e outros campos de negócio.
 
-Python and Pandas were used to clean and structure source data before relational loading. Practical work included:
+Python e Pandas foram utilizados para limpar e estruturar os dados de origem antes da carga relacional. O trabalho prático incluiu:
 
-- source-column validation;
-- data-type conversion;
-- null and empty-string treatment;
-- numeric and date preparation;
-- preservation of business keys;
-- normalization of repeated spreadsheet columns;
-- creation of relational output structures.
+- validação de colunas da origem;
+- conversão de tipos de dados;
+- tratamento de valores nulos e textos vazios;
+- preparação de campos numéricos e datas;
+- preservação de chaves de negócio;
+- normalização de colunas repetidas em planilhas;
+- criação de estruturas relacionais de saída.
 
-A representative example was preserving contract identifiers as text because the business key can contain characters such as hyphens and slashes.
+Um exemplo representativo foi preservar identificadores de contratos como texto, pois a chave de negócio pode conter caracteres como hífens e barras.
 
-The transformed datasets were loaded into MySQL through SQLAlchemy / PyMySQL for structured storage and validation.
+Os conjuntos de dados transformados foram carregados no MySQL por meio de SQLAlchemy / PyMySQL para armazenamento estruturado e validação.
 
-## 2. Qlik analytical preparation
+## 2. Preparação analítica Qlik
 
-The Qlik application uses prepared analytical datasets organized through QVD-based structures and intermediate analytical tables.
+A aplicação Qlik utiliza conjuntos de dados analíticos preparados e organizados por estruturas baseadas em QVD e tabelas analíticas intermediárias.
 
-The analytical model covers domains such as:
+O modelo analítico cobre domínios como:
 
-- contracts;
-- proposals;
-- customers and portfolio relationships;
-- managers and regional structures;
-- targets;
-- opportunities;
-- financial measures;
-- reconciliation events.
+- contratos;
+- propostas;
+- clientes e relacionamentos de carteira;
+- gestores e estruturas regionais;
+- metas;
+- oportunidades;
+- medidas financeiras;
+- eventos de conciliação.
 
-## 3. Business rules and analytical logic
+## 3. Regras de negócio e lógica analítica
 
-The semantic layer converts prepared data into decision-oriented indicators, including:
+A camada semântica transforma dados preparados em indicadores orientados à tomada de decisão, incluindo:
 
-- production and financial KPIs;
-- proposal-funnel metrics;
-- SLA analysis;
-- target and gap analysis;
-- opportunity maturity and recurrence signals;
-- opportunity scoring and priority classification;
-- estimated financial potential;
-- reconciliation exposure and exception monitoring.
+- KPIs de produção e financeiros;
+- métricas do funil de propostas;
+- análise de SLA;
+- análise de metas e diferenças;
+- sinais de maturidade e recorrência de oportunidades;
+- pontuação de oportunidades e classificação de prioridade;
+- potencial financeiro estimado;
+- exposição de conciliação e monitoramento de exceções.
 
-## 4. Business consumption
+## 4. Consumo pelo negócio
 
-The final Qlik application is organized into six analytical views:
+A aplicação Qlik final está organizada em seis visões analíticas:
 
-1. Executive Overview
-2. Commercial Funnel
-3. Portfolio & Opportunities
-4. Financial Results
-5. Commercial Performance
-6. Reconciliation & Delinquency
+1. Visão Executiva
+2. Funil Comercial
+3. Carteira e Oportunidades
+4. Resultados Financeiros
+5. Desempenho Comercial
+6. Conciliação e Inadimplência
 
-Together, these views move from executive monitoring to operational and commercial action.
+Em conjunto, essas visões vão do acompanhamento executivo até ações operacionais e comerciais.
 
-## Design principles
+## Princípios de arquitetura
 
-- Preserve business identifiers correctly
-- Validate data before relational loading
-- Normalize spreadsheet-style structures
-- Keep data-engineering and analytical layers clearly separated
-- Avoid unsupported lineage claims in public documentation
-- Convert operational data into action-oriented business signals
-- Protect personal and confidential information in public evidence
+- Preservar corretamente os identificadores de negócio
+- Validar os dados antes da carga relacional
+- Normalizar estruturas originadas em planilhas
+- Manter as camadas de engenharia de dados e analytics claramente separadas
+- Evitar afirmações de linhagem não comprovadas na documentação pública
+- Converter dados operacionais em sinais de negócio acionáveis
+- Proteger informações pessoais e confidenciais nas evidências públicas
