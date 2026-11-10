@@ -1,59 +1,59 @@
-# Privacy & Anonymization
+# Privacidade e Anonimização
 
-## Why this matters
+## Por que isso importa
 
-This project is based on a real credit operations implementation and therefore involves data categories that must not be exposed in a public portfolio.
+Este projeto é baseado em uma implementação real de operações de crédito e, portanto, envolve categorias de dados que não devem ser expostas em um portfólio público.
 
-The GitHub version is designed to demonstrate architecture, analytical reasoning, data engineering decisions, Qlik modeling, and dashboard design without publishing confidential production information.
+A versão no GitHub foi desenvolvida para demonstrar arquitetura, raciocínio analítico, decisões de engenharia de dados, modelagem Qlik e design de dashboards sem publicar informações confidenciais de produção.
 
-## Information excluded from the public repository
+## Informações excluídas do repositório público
 
-The public case study must not expose:
+O estudo de caso público não deve expor:
 
-- CPF or equivalent personal identifiers
-- customer names
-- real customer contract numbers
-- dates or values that can identify an individual customer when combined
-- employee personal information where unnecessary
-- production credentials
-- passwords or tokens
-- database connection strings
-- server hostnames / IP addresses
-- proprietary company infrastructure
-- internal URLs
-- confidential source datasets
-- client-specific documentation
-- proprietary scoring weights
+- CPF ou identificadores pessoais equivalentes
+- nomes de clientes
+- números reais de contratos associados a clientes
+- datas ou valores que possam identificar um cliente quando combinados
+- informações pessoais de funcionários quando desnecessárias
+- credenciais de produção
+- senhas ou tokens
+- strings de conexão com bancos de dados
+- nomes de servidores / endereços IP
+- infraestrutura proprietária da empresa
+- URLs internas
+- conjuntos de dados confidenciais de origem
+- documentação específica do cliente
+- pesos proprietários de pontuação
 
-## Screenshot sanitization
+## Tratamento das capturas de tela
 
-Before a screenshot is published, the following items should be reviewed and replaced or hidden when present:
+Antes de publicar uma captura de tela, os seguintes itens devem ser revisados e substituídos ou ocultados quando estiverem presentes:
 
-- customer identifiers
-- contract identifiers tied to individuals
-- unmasked personal information
-- real internal usernames or emails
-- confidential organization / client identifiers
-- infrastructure or connection details
+- identificadores de clientes
+- identificadores de contratos associados a pessoas
+- informações pessoais sem mascaramento
+- nomes de usuário ou e-mails internos reais
+- identificadores confidenciais de organizações / clientes
+- detalhes de infraestrutura ou conexão
 
-Names used only to demonstrate dashboard layout may also be generalized to neutral labels when the real identity does not add technical value.
+Nomes utilizados apenas para demonstrar o layout dos dashboards também podem ser generalizados para rótulos neutros quando a identidade real não agregar valor técnico.
 
-## Masked analytical fields
+## Campos analíticos mascarados
 
-The Qlik analytical model already includes masked customer/CPF fields in parts of the application.
+O modelo analítico Qlik já inclui campos mascarados de cliente / CPF em partes da aplicação.
 
-Even when a value is masked in the analytical layer, screenshots are reviewed again before public publication.
+Mesmo quando um valor está mascarado na camada analítica, as capturas de tela são revisadas novamente antes da publicação pública.
 
-## Synthetic examples
+## Exemplos sintéticos
 
-Any sample datasets or code examples added to this repository should use synthetic values while maintaining the same:
+Qualquer conjunto de dados de exemplo ou código adicionado a este repositório deve utilizar valores sintéticos, mantendo os mesmos:
 
-- data types
-- table relationships
-- transformation patterns
-- business-rule structure
-- analytical behavior
+- tipos de dados
+- relacionamentos entre tabelas
+- padrões de transformação
+- estrutura de regras de negócio
+- comportamento analítico
 
-## Portfolio principle
+## Princípio do portfólio
 
-The public repository should be detailed enough to demonstrate the technical implementation while remaining impossible to use as a reconstruction of confidential customer or company data.
+O repositório público deve ser detalhado o suficiente para demonstrar a implementação técnica, mas sem permitir a reconstrução de dados confidenciais de clientes ou da empresa.
